@@ -31,10 +31,15 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void Start();
 	UFUNCTION(BlueprintCallable)
+	void SetGameWave() const;
+	UFUNCTION(BlueprintCallable)
 	void SetGameDifficulty() const;
 	//Set the difficulty variable within the main menu widget class
 	UFUNCTION(BlueprintCallable)
 	void SetDifficultyChosen(const EDifficulty Difficulty);
+	//Set the wave variable within the main menu widget class
+	UFUNCTION(BlueprintCallable)
+	void SetWaveChosen(const int32 Wave);
 	UFUNCTION(BlueprintCallable)
 	void Quit() const;
 	UFUNCTION(BlueprintCallable)
@@ -43,16 +48,22 @@ protected:
 	void ExecuteToggleEnemyAttackBoxes(const bool AttackBoxVisibility) const;
 	UFUNCTION(BlueprintCallable)
 	void SwitchDifficultyButton(UButton* DestButton);
+	UFUNCTION(BlueprintCallable)
+	void SwitchWaveButton(UButton* DestButton);
 	//Removes the active color from the current button chosen
 	UFUNCTION(BlueprintCallable)
 	void ResetDifficultyButton();
+	UFUNCTION(BlueprintCallable)
+	void ResetWaveButton();
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, meta = (ForceAsFunction))
 	void OnChosingDifficultyButton();
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, meta = (ForceAsFunction))
 	void OnLeavingDifficultyMenu();
 
 	UPROPERTY(BlueprintReadOnly)
-	FLinearColor OriginalDifficultyButtonColor;
+	TWeakObjectPtr<UButton> CurrentWaveButton;
+	UPROPERTY(BlueprintReadOnly)
+	TWeakObjectPtr<UButton> CurrentDifficultyButton;
 	UPROPERTY(BlueprintReadOnly)
 	EDifficulty CurrentDifficultyChosen;
 
@@ -63,6 +74,9 @@ public:
 
 private:
 	
-	TWeakObjectPtr<UButton> CurrentDifficultyButton;
+	FLinearColor OriginalDifficultyButtonColor;
+	FLinearColor OriginalWaveButtonColor;
+
+	int32 CurrentWaveChosen;
 
 };

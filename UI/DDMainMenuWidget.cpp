@@ -2,11 +2,11 @@
 
 
 #include "DDMainMenuWidget.h"
-#include "Components/CanvasPanel.h"
 #include "Kismet/KismetSystemLibrary.h"
 //My classes
 #include "Components/Button.h"
 #include "DragonsDefense_v2/Game/DDGameModeBase.h"
+#include "DragonsDefense_v2/Game/DDEnemySpawner.h"
 
 void UDDMainMenuWidget::Start()
 {
@@ -17,7 +17,7 @@ void UDDMainMenuWidget::Start()
 	SetVisibility(ESlateVisibility::Hidden);
 }
 
-void UDDMainMenuWidget::SetGameDifficulty() const
+void UDDMainMenuWidget::SetGameWave() const 
 {
 	ADDGameModeBase* GameMode = Cast<ADDGameModeBase>(GetWorld()->GetAuthGameMode());
 	if (GameMode) {
@@ -25,9 +25,22 @@ void UDDMainMenuWidget::SetGameDifficulty() const
 	}
 }
 
+void UDDMainMenuWidget::SetGameDifficulty() const
+{
+	ADDGameModeBase* GameMode = Cast<ADDGameModeBase>(GetWorld()->GetAuthGameMode()); //TODO - investigate how chosen waves impact the rest of the game systems
+	if (GameMode) {
+		GameMode->GetEnemySpawner().SetCurrentWave(CurrentWaveChosen);
+	}
+}
+
 void UDDMainMenuWidget::SetDifficultyChosen(const EDifficulty Difficulty) 
 {
 	CurrentDifficultyChosen = Difficulty;
+}
+
+void UDDMainMenuWidget::SetWaveChosen(const int32 Wave) 
+{
+	CurrentWaveChosen = Wave;
 }
 
 void UDDMainMenuWidget::Quit() const
@@ -62,7 +75,24 @@ void UDDMainMenuWidget::SwitchDifficultyButton(UButton* DestButton)
 	TempColor.B *= ActiveColorMultiplier;
 
 	DestButton->SetBackgroundColor(TempColor);
-	CurrentDifficultyButton = DestButton;
+	CurrentDifficultyButton = MakeWeakObjectPtr(DestButton);
+}
+
+void UDDMainMenuWidget::SwitchWaveButton(UButton* DestButton) 
+{
+	if (CurrentWaveButton.IsValid()) {
+		CurrentWaveButton->SetBackgroundColor(OriginalWaveButtonColor);
+	}
+
+	FLinearColor TempColor = DestButton->GetBackgroundColor();
+	OriginalWaveButtonColor = TempColor;
+
+	TempColor.R *= ActiveColorMultiplier;
+	TempColor.G *= ActiveColorMultiplier;
+	TempColor.B *= ActiveColorMultiplier;
+
+	DestButton->SetBackgroundColor(TempColor);
+	CurrentWaveButton = MakeWeakObjectPtr(DestButton);
 }
 
 void UDDMainMenuWidget::ResetDifficultyButton() 
@@ -70,5 +100,13 @@ void UDDMainMenuWidget::ResetDifficultyButton()
 	if (CurrentDifficultyButton.IsValid()) {
 		CurrentDifficultyButton->SetBackgroundColor(OriginalDifficultyButtonColor);
 		CurrentDifficultyButton.Reset();
+	}
+}
+
+void UDDMainMenuWidget::ResetWaveButton() 
+{
+	if (CurrentWaveButton.IsValid()) {
+		CurrentWaveButton->SetBackgroundColor(OriginalWaveButtonColor);
+		CurrentWaveButton.Reset();
 	}
 }
