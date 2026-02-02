@@ -1,0 +1,88 @@
+<mxfile host="Electron" modified="2023-10-23T22:12:06.615Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="mXDc_kTUwMFYjdBlTh-A" version="22.0.3" type="device">
+  <diagram name="Page-1" id="V7G9BU9yCrYEMqWestKh">
+    <mxGraphModel dx="1838" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-1" value="Projectile" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" parent="1" vertex="1">
+          <mxGeometry x="80" y="30" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-2" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="180" y="69.8" as="sourcePoint" />
+            <mxPoint x="280" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-3" value="Enemy" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="290" y="30" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-5" value="Enemy" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="410" y="32" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-9" value="Considerations:&lt;br&gt;Collision&lt;br&gt;Damage&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Damage applies when health for enemies is added&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Difficulty modifier needed for damage&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Might not consider this, could make enemies too spongy&lt;br&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Sounds for projectile&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="20" y="125" width="380" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-10" value="Creates" style="triangle;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="32" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-11" value="Projectile" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" parent="1" vertex="1">
+          <mxGeometry x="570" y="30" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-13" value="Castle" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="730" y="27" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-14" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="240" as="sourcePoint" />
+            <mxPoint x="400" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-15" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="660" y="69.8" as="sourcePoint" />
+            <mxPoint x="720" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-16" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Considerations:&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Collision&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Damage&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Difficulty modifier needed for damage&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Sound for projectile&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="485" y="130" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-17" value="Projectile" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="130" y="266" width="250" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-18" value="BoxCollision : BoxComponent&lt;br&gt;Mesh : StaticMeshComponent&lt;br&gt;ProjectileMovement: ProjectileComponent&lt;br&gt;ShootSound : AudioComponent&lt;br&gt;ImpactSound : AudioComponent&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;br&gt;ProjectileEffects : NiagraComponent&lt;br&gt;Damage : float&lt;br&gt;EasyModifier : float&lt;br&gt;HardModifier : float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FQ76dqFkqC7amCYsWnk_-17" vertex="1">
+          <mxGeometry y="26" width="250" height="144" as="geometry" />
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-19" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="FQ76dqFkqC7amCYsWnk_-17" vertex="1">
+          <mxGeometry y="170" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="FQ76dqFkqC7amCYsWnk_-20" value="OverlapBegin(...)&lt;br&gt;ApplyModifiers()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FQ76dqFkqC7amCYsWnk_-17" vertex="1">
+          <mxGeometry y="178" width="250" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="QxdJuhqkO0IWR56ZY_Ck-1" value="Global Variables" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="270" width="140" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="QxdJuhqkO0IWR56ZY_Ck-2" value="Easy&lt;br&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QxdJuhqkO0IWR56ZY_Ck-1">
+          <mxGeometry y="26" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QxdJuhqkO0IWR56ZY_Ck-3" value="Normal&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QxdJuhqkO0IWR56ZY_Ck-1">
+          <mxGeometry y="52" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="QxdJuhqkO0IWR56ZY_Ck-4" value="Hard&lt;br&gt;&lt;br&gt;..." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="QxdJuhqkO0IWR56ZY_Ck-1">
+          <mxGeometry y="78" width="140" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="QxdJuhqkO0IWR56ZY_Ck-5" value="Needed for using&lt;br&gt;difficulty modifiers" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="390" y="278" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QxdJuhqkO0IWR56ZY_Ck-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="FQ76dqFkqC7amCYsWnk_-20" target="QxdJuhqkO0IWR56ZY_Ck-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxdJuhqkO0IWR56ZY_Ck-8" value="No need for NormalModifier&lt;br&gt;as that would be the default" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="318" width="170" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,55 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.1.2 Chrome/138.0.7204.243 Electron/37.4.0 Safari/537.36" version="28.1.2">
+  <diagram name="Page-1" id="gs7oEaNdeVd85yQeYQYl">
+    <mxGraphModel dx="1181" dy="691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BHDF-3E3FEYRHNp8UeIt-1" value="Classname" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="315" y="45" width="200" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="BHDF-3E3FEYRHNp8UeIt-2" value="EnemiesKilled : int32&lt;br&gt;&lt;div&gt;---Save/Load update----&lt;br&gt;&lt;/div&gt;&lt;div&gt;SaveFileName: FString&lt;/div&gt;&lt;div&gt;SaveData : DDSaveManager*&lt;/div&gt;&lt;div&gt;OnSaveData :&amp;nbsp;&lt;span style=&quot;text-align: center; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;DDSaveData*&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="BHDF-3E3FEYRHNp8UeIt-1" vertex="1">
+          <mxGeometry y="26" width="200" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="BHDF-3E3FEYRHNp8UeIt-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="BHDF-3E3FEYRHNp8UeIt-1" vertex="1">
+          <mxGeometry y="110" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="BHDF-3E3FEYRHNp8UeIt-4" value="BeginPlay()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="BHDF-3E3FEYRHNp8UeIt-1" vertex="1">
+          <mxGeometry y="118" width="200" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="BHDF-3E3FEYRHNp8UeIt-5" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="BHDF-3E3FEYRHNp8UeIt-1" vertex="1">
+          <mxGeometry y="150" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="BHDF-3E3FEYRHNp8UeIt-6" value="&lt;b&gt;Blueprint Implementation&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="BHDF-3E3FEYRHNp8UeIt-1" vertex="1">
+          <mxGeometry y="158" width="200" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="5YuOGRQniM6eO3-OX8w0-1" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1.005;exitY=0.077;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="BHDF-3E3FEYRHNp8UeIt-2" target="5YuOGRQniM6eO3-OX8w0-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="515" y="120" as="sourcePoint" />
+            <mxPoint x="595" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5YuOGRQniM6eO3-OX8w0-2" value="enum Difficulties" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="640" y="55" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9JaAKKZl47fHJIoXJTpp-1" value="severly outdated design LOL" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" parent="1" vertex="1">
+          <mxGeometry x="60" y="30" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="9JaAKKZl47fHJIoXJTpp-13" value="UDDSaveData" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="630" y="130" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9JaAKKZl47fHJIoXJTpp-14" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.995;exitY=-0.045;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="BHDF-3E3FEYRHNp8UeIt-4" target="9JaAKKZl47fHJIoXJTpp-13" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="570" y="220" as="sourcePoint" />
+            <mxPoint x="620" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9JaAKKZl47fHJIoXJTpp-16" value="Save on wave over and game over" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" parent="1" vertex="1">
+          <mxGeometry x="190" y="190" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="BV5rL0sFnENxkP1nx90v-1" value="Load on BeginPlay()" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" vertex="1" parent="1">
+          <mxGeometry x="190" y="60" width="100" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

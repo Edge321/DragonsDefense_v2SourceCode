@@ -1,0 +1,226 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.8 Chrome/140.0.7339.240 Electron/38.4.0 Safari/537.36" version="28.2.8" pages="3">
+  <diagram name="UML" id="A92BdNKljdkqnT62k-o3">
+    <mxGraphModel dx="1425" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="aze1-G2N5fPgMVTwDsin-1" value="EnemySpawner" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="320" y="30" width="230" height="302" as="geometry" />
+        </mxCell>
+        <mxCell id="aze1-G2N5fPgMVTwDsin-2" value="SpawnerIcon : BillboardComponent&lt;br&gt;SpawnTimerHandle: FTimerHandle&lt;br&gt;EnemiesToSpawn : TArray&lt;br&gt;SpawnInterval : float&lt;br&gt;SpawnArea : float&lt;br&gt;SpawnTimeReducer : float&lt;br&gt;EnemyCounter : int32&lt;div&gt;HorizontalSpawnAreaY : float&lt;/div&gt;&lt;div&gt;HorizontalSpawnAreaRange : 2DVector&amp;nbsp;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="aze1-G2N5fPgMVTwDsin-1" vertex="1">
+          <mxGeometry y="26" width="230" height="144" as="geometry" />
+        </mxCell>
+        <mxCell id="aze1-G2N5fPgMVTwDsin-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="aze1-G2N5fPgMVTwDsin-1" vertex="1">
+          <mxGeometry y="170" width="230" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aze1-G2N5fPgMVTwDsin-4" value="SpawnEnemy(AEnemy* Enemy)&lt;div&gt;SpawnEnemy(HorizontalEnemy* Enemy)&lt;br&gt;&lt;div&gt;SortWaves()&lt;br&gt;SearchWave()&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="aze1-G2N5fPgMVTwDsin-1" vertex="1">
+          <mxGeometry y="178" width="230" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="aze1-G2N5fPgMVTwDsin-5" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="aze1-G2N5fPgMVTwDsin-1" vertex="1">
+          <mxGeometry y="240" width="230" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aze1-G2N5fPgMVTwDsin-6" value="&lt;b&gt;Blueprint Implementation&lt;/b&gt;&lt;br&gt;Expose the array to put in enemies" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="aze1-G2N5fPgMVTwDsin-1" vertex="1">
+          <mxGeometry y="248" width="230" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="9QjnetIs-DKSFdotRn7A-1" value="" style="endArrow=none;html=1;rounded=0;entryX=0.01;entryY=0.345;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="9QjnetIs-DKSFdotRn7A-2" target="aze1-G2N5fPgMVTwDsin-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="153" as="sourcePoint" />
+            <mxPoint x="310" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9QjnetIs-DKSFdotRn7A-2" value="Enemy" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="90" y="179" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9QjnetIs-DKSFdotRn7A-4" value="Needs to know" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="200" y="170" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JIKvpt19FEVvEgWr2wTg-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JIKvpt19FEVvEgWr2wTg-3" target="aze1-G2N5fPgMVTwDsin-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JIKvpt19FEVvEgWr2wTg-3" value="TheKing" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="710" y="204" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JIKvpt19FEVvEgWr2wTg-5" value="Controls when to start spawn after the king finishes calculations" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="560" y="250" width="120" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BDAmWs_XElTPPhAQJqha-1" target="BDAmWs_XElTPPhAQJqha-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-1" value="Game Starts" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BDAmWs_XElTPPhAQJqha-2" target="BDAmWs_XElTPPhAQJqha-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-2" value="Sort Waves by priority" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="250" y="460" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BDAmWs_XElTPPhAQJqha-4" target="BDAmWs_XElTPPhAQJqha-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-4" value="Before beginning wave..." style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="460" y="460" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-6" value="Search through entire sorted list, finding CurrentWaves % WaveTrigger == 0" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="670" y="460" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kOzjN_RzX7XbJ7V-DzSM-1" value="Feel like there is optimization potential here..." style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" parent="1" vertex="1">
+          <mxGeometry x="670" y="340" width="100" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="SMfpZyF4W7v1nPonbJM9" name="Spawn Range Limiter Design">
+    <mxGraphModel dx="1722" dy="2101" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="h6ST2cXL_ymDraCQmF7r-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="25" y="40" width="800" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="hLbs44Vvl3uxgGxo01L_-1" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fillColor=#e51400;strokeColor=#B20000;opacity=90;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="80" as="sourcePoint" />
+            <mxPoint x="360" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h6ST2cXL_ymDraCQmF7r-2" value="Castle" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" parent="1" vertex="1">
+          <mxGeometry x="40" y="530" width="770" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h6ST2cXL_ymDraCQmF7r-3" value="Player" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" parent="1" vertex="1">
+          <mxGeometry x="385" y="460" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="h6ST2cXL_ymDraCQmF7r-8" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F6F6F;gradientColor=none;strokeWidth=4;" parent="1" vertex="1">
+          <mxGeometry x="270" y="40" width="40" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="h6ST2cXL_ymDraCQmF7r-9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F6F6F;gradientColor=none;strokeWidth=4;" parent="1" vertex="1">
+          <mxGeometry x="540" y="40" width="40" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="h6ST2cXL_ymDraCQmF7r-4" value="Health Bar" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e51400;fontColor=#ffffff;strokeColor=#B20000;opacity=50;" parent="1" vertex="1">
+          <mxGeometry x="265" y="55" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="h6ST2cXL_ymDraCQmF7r-5" value="The game itself" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="395" y="325" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="h6ST2cXL_ymDraCQmF7r-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="h6ST2cXL_ymDraCQmF7r-10" target="h6ST2cXL_ymDraCQmF7r-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="h6ST2cXL_ymDraCQmF7r-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="h6ST2cXL_ymDraCQmF7r-10" target="h6ST2cXL_ymDraCQmF7r-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="h6ST2cXL_ymDraCQmF7r-10" value="Red lines indiciating spawn range, always there.&lt;div&gt;Has bouncing up and down effect&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" parent="1" vertex="1">
+          <mxGeometry x="375" y="-110" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="hLbs44Vvl3uxgGxo01L_-2" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fillColor=#e51400;strokeColor=#B20000;opacity=90;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="424" y="80" as="sourcePoint" />
+            <mxPoint x="424" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hLbs44Vvl3uxgGxo01L_-3" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;fillColor=#e51400;strokeColor=#B20000;opacity=90;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="80" as="sourcePoint" />
+            <mxPoint x="500" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hLbs44Vvl3uxgGxo01L_-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;" parent="1" source="hLbs44Vvl3uxgGxo01L_-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="425" y="110" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="425" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hLbs44Vvl3uxgGxo01L_-4" value="Arrows indiciating enemies coming down from this path, keeping arrows within spawn range" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" parent="1" vertex="1">
+          <mxGeometry x="120" y="-130" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="hLbs44Vvl3uxgGxo01L_-6" value="Animation of arrows slowly going down and up, adds emphasis" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" parent="1" vertex="1">
+          <mxGeometry x="20" y="-70" width="100" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="AhaBCnNM2hTy2ZuNx8U4" name="Spawn Range Limiter UML">
+    <mxGraphModel dx="1425" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="d1fMv10wozoSRWw2htVY-1" value="DDSpawnRangeLimiterManager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="345" y="160" width="305" height="510" as="geometry" />
+        </mxCell>
+        <mxCell id="ylNQ-coGLXQNX0aCgMc1-7" value="SpawnRangeLimiterIcon : BillboardComponent" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="26" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="qBmA8ZccM2i2v2W3_l4K-1" value="RightRedLineSpawnRange :StaticMesh" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="52" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d1fMv10wozoSRWw2htVY-2" value="LeftRedLineSpawnRange : StaticMesh" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="78" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="qBmA8ZccM2i2v2W3_l4K-2" value="SpawnPointerBase : Arrow" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="104" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ylNQ-coGLXQNX0aCgMc1-4" value="SpawnPointers : TArray&amp;lt;Arrow&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="130" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="7x4Ivj7IDD8HzKF5x310-2" value="SpawnRangeLimit : FVector" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="156" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="snW-VzJW7dHGMCE70GNC-2" value="TempSpawnRangeLimit : FVector" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="182" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="snW-VzJW7dHGMCE70GNC-7" value="bTempSpawnRangeActive : bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="208" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ylNQ-coGLXQNX0aCgMc1-1" value="SpawnRangeIncrease : float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="234" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ylNQ-coGLXQNX0aCgMc1-2" value="SpawnRangeIncreaseWave : int32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="260" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ylNQ-coGLXQNX0aCgMc1-5" value="MaxSpawnRange : FVector" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="286" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d1fMv10wozoSRWw2htVY-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="312" width="305" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="7x4Ivj7IDD8HzKF5x310-1" value="WaveOverEventFunction()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="320" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ylNQ-coGLXQNX0aCgMc1-3" value="InitializeSpawnPointers()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="346" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="snW-VzJW7dHGMCE70GNC-1" value="SetTemporarySpawnRange(FVector)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="372" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d1fMv10wozoSRWw2htVY-4" value="FVector LimitCustomSpawnRange(FVector)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="398" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d1fMv10wozoSRWw2htVY-5" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="424" width="305" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="d1fMv10wozoSRWw2htVY-6" value="&lt;b&gt;Blueprint Implementation&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="432" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d1fMv10wozoSRWw2htVY-7" value="Static Meshes for red lines" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="458" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ylNQ-coGLXQNX0aCgMc1-6" value="Arrows" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry y="484" width="305" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="d1fMv10wozoSRWw2htVY-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.003;entryY=0.025;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="d1fMv10wozoSRWw2htVY-10" target="d1fMv10wozoSRWw2htVY-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d1fMv10wozoSRWw2htVY-10" value="EnemySpawner" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="140" y="150" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="UeuZ2xFDjnpZIzkSx3ew-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="UeuZ2xFDjnpZIzkSx3ew-1" target="snW-VzJW7dHGMCE70GNC-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UeuZ2xFDjnpZIzkSx3ew-1" value="Mostly gonna be used for Downgrade purposes" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" vertex="1" parent="1">
+          <mxGeometry x="740" y="495" width="100" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,73 @@
+<mxfile host="Electron" modified="2024-02-14T20:31:40.821Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="j1iIxJ6E77-e0c5gdIrq" version="23.0.2" type="device">
+  <diagram name="Page-1" id="A92BdNKljdkqnT62k-o3">
+    <mxGraphModel dx="988" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="aze1-G2N5fPgMVTwDsin-1" value="EnemySpawner" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="315" y="50" width="200" height="272" as="geometry" />
+        </mxCell>
+        <mxCell id="aze1-G2N5fPgMVTwDsin-2" value="SpawnerIcon : BillboardComponent&lt;br&gt;SpawnTimerHandle: FTimerHandle&lt;br&gt;EnemiesToSpawn : TArray&lt;br&gt;SpawnInterval : float&lt;br&gt;SpawnArea : float&lt;br&gt;SpawnTimeReducer : float&lt;br&gt;&lt;br&gt;EnemyCounter : int32" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="aze1-G2N5fPgMVTwDsin-1" vertex="1">
+          <mxGeometry y="26" width="200" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="aze1-G2N5fPgMVTwDsin-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="aze1-G2N5fPgMVTwDsin-1" vertex="1">
+          <mxGeometry y="150" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aze1-G2N5fPgMVTwDsin-4" value="SpawnEnemy(Enemy)&lt;br&gt;SortWaves()&lt;br&gt;SearchWave()&lt;br&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="aze1-G2N5fPgMVTwDsin-1" vertex="1">
+          <mxGeometry y="158" width="200" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="aze1-G2N5fPgMVTwDsin-5" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="aze1-G2N5fPgMVTwDsin-1" vertex="1">
+          <mxGeometry y="210" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aze1-G2N5fPgMVTwDsin-6" value="&lt;b&gt;Blueprint Implementation&lt;/b&gt;&lt;br&gt;Expose the array to put in enemies" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="aze1-G2N5fPgMVTwDsin-1" vertex="1">
+          <mxGeometry y="218" width="200" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="9QjnetIs-DKSFdotRn7A-1" value="" style="endArrow=none;html=1;rounded=0;entryX=0.01;entryY=0.345;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="9QjnetIs-DKSFdotRn7A-2" target="aze1-G2N5fPgMVTwDsin-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="153" as="sourcePoint" />
+            <mxPoint x="310" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9QjnetIs-DKSFdotRn7A-2" value="Enemy" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="90" y="179" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9QjnetIs-DKSFdotRn7A-4" value="Needs to know" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="200" y="170" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JIKvpt19FEVvEgWr2wTg-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JIKvpt19FEVvEgWr2wTg-3" target="aze1-G2N5fPgMVTwDsin-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JIKvpt19FEVvEgWr2wTg-3" value="SoulShopWidget" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="710" y="204" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JIKvpt19FEVvEgWr2wTg-5" value="Controls when to start spawn after player finishes with shop" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="560" y="250" width="120" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BDAmWs_XElTPPhAQJqha-1" target="BDAmWs_XElTPPhAQJqha-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-1" value="Game Starts" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BDAmWs_XElTPPhAQJqha-2" target="BDAmWs_XElTPPhAQJqha-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-2" value="Sort Waves by priority" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="250" y="460" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="BDAmWs_XElTPPhAQJqha-4" target="BDAmWs_XElTPPhAQJqha-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-4" value="Before beginning wave..." style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="460" y="460" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BDAmWs_XElTPPhAQJqha-6" value="Search through entire sorted list, finding CurrentWaves % WaveTrigger == 0" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="670" y="460" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kOzjN_RzX7XbJ7V-DzSM-1" value="Feel like there is optimization potential here..." style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" parent="1" vertex="1">
+          <mxGeometry x="670" y="340" width="100" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

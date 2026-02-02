@@ -1,0 +1,84 @@
+<mxfile host="Electron" modified="2024-04-15T22:15:48.054Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.2.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="3zcHXGnbpFmhjVVNqhfW" version="24.2.5" type="device" pages="2">
+  <diagram name="InGame Design" id="QzM4_u94fj_qvtwNxzc1">
+    <mxGraphModel dx="3980" dy="1930" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wcBUADlwXLfDYiErWVCj-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1675" y="-930" width="800" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="wcBUADlwXLfDYiErWVCj-2" value="Castle" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" vertex="1" parent="1">
+          <mxGeometry x="-1660" y="-440" width="770" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="wcBUADlwXLfDYiErWVCj-3" value="Player" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="-1315" y="-510" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wcBUADlwXLfDYiErWVCj-4" value="Enemy Spawner" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1335" y="-1020" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wcBUADlwXLfDYiErWVCj-5" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="-1985" y="-705" width="440" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="wcBUADlwXLfDYiErWVCj-6" value="Boundary&lt;div&gt;for horizontal enemies&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1850" y="-760" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wcBUADlwXLfDYiErWVCj-7" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="-990" y="-700" width="440" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="wcBUADlwXLfDYiErWVCj-8" value="Boundary&lt;div&gt;for horizontal enemies&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-740" y="-775" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wcBUADlwXLfDYiErWVCj-9" value="Horizontal&lt;div&gt;Enemy&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
+          <mxGeometry x="-990" y="-840" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wcBUADlwXLfDYiErWVCj-10" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-910" y="-800.29" as="sourcePoint" />
+            <mxPoint x="-840" y="-799.87" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wcBUADlwXLfDYiErWVCj-11" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-800" y="-609.58" as="sourcePoint" />
+            <mxPoint x="-860" y="-610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wcBUADlwXLfDYiErWVCj-12" value="Goes opposite direction at random location on boundary" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" vertex="1" parent="1">
+          <mxGeometry x="-755" y="-660" width="85" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="wcBUADlwXLfDYiErWVCj-13" value="Variable exists for how many times they go back and forth" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" vertex="1" parent="1">
+          <mxGeometry x="-755" y="-550" width="100" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="vPAmxcLTejP58wDoY0Ur" name="UML">
+    <mxGraphModel dx="988" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4VN94h7V1OhLisxPNHov-1" value="BounceBoundary" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="279" y="20" width="293" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="4VN94h7V1OhLisxPNHov-2" value="Mesh : StaticMesh&lt;div&gt;Collider : BoxCollider&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="4VN94h7V1OhLisxPNHov-1">
+          <mxGeometry y="26" width="293" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="4VN94h7V1OhLisxPNHov-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="4VN94h7V1OhLisxPNHov-1">
+          <mxGeometry y="60" width="293" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="4VN94h7V1OhLisxPNHov-4" value="BeginOverlap(...)&lt;div&gt;RandomizeBounceSpawn(HorizontalEnemy* Enemy)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="4VN94h7V1OhLisxPNHov-1">
+          <mxGeometry y="68" width="293" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="4VN94h7V1OhLisxPNHov-5" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="4VN94h7V1OhLisxPNHov-1">
+          <mxGeometry y="110" width="293" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="4VN94h7V1OhLisxPNHov-6" value="&lt;b&gt;Blueprint Implementation&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="4VN94h7V1OhLisxPNHov-1">
+          <mxGeometry y="118" width="293" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="4VN94h7V1OhLisxPNHov-7" value="What it looks like" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="4VN94h7V1OhLisxPNHov-1">
+          <mxGeometry y="144" width="293" height="26" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

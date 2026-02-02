@@ -1,0 +1,152 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.8 Chrome/140.0.7339.240 Electron/38.4.0 Safari/537.36" version="28.2.8" pages="2">
+  <diagram name="Player Design" id="XGGPJhqjdagpd5VtSqAP">
+    <mxGraphModel dx="1425" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-1" value="Events to Account for" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="355" y="10" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-2" value="Player" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
+          <mxGeometry x="70" y="40" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-3" value="Creates" style="triangle;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="40" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-4" value="Projectile" style="rhombus;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" parent="1" vertex="1">
+          <mxGeometry x="230" y="40" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-5" value="Player" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
+          <mxGeometry x="540" y="40" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-7" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="79.76" as="sourcePoint" />
+            <mxPoint x="470" y="79.76" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-8" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="630" y="80" as="sourcePoint" />
+            <mxPoint x="690" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-9" value="Move Right" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="620" y="38" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-10" value="Move Left" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="460" y="38" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-11" value="" style="endArrow=none;html=1;rounded=0;entryX=0.462;entryY=1.106;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="pKIawOWkSoRLGqF8TNIB-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="190" as="sourcePoint" />
+            <mxPoint x="420" y="50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-12" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Player shoots the projectile&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Thats about it honestly&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="95" y="130" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-13" value="Limit player movement&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Can only go so far to the right/left" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="470" y="130" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-57" value="DDPlayer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="275" y="210" width="290" height="352" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-58" value="Mesh : SkeletalMeshComponent&lt;br&gt;FloatingPawnMovement : FloatingPawnMovement&lt;br&gt;MovementSpeed : float&lt;br&gt;AreaLimit : float&lt;br&gt;ProjectileOffset : FVector&lt;br&gt;Health : float&lt;br&gt;MaxHealth : float&lt;br&gt;Armor : float&lt;div&gt;===Line of sight update====&lt;/div&gt;&lt;div&gt;LineOfSightMesh : MeshComponent&lt;/div&gt;&lt;div&gt;LineOfSightLength : float&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="pKIawOWkSoRLGqF8TNIB-57" vertex="1">
+          <mxGeometry y="26" width="290" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-59" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="pKIawOWkSoRLGqF8TNIB-57" vertex="1">
+          <mxGeometry y="200" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-60" value="Shoot(Projectile)&lt;div&gt;===Line of sight update====&lt;br&gt;&lt;div&gt;UpdateLineOfSight(float)&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="pKIawOWkSoRLGqF8TNIB-57" vertex="1">
+          <mxGeometry y="208" width="290" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-63" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="pKIawOWkSoRLGqF8TNIB-57" vertex="1">
+          <mxGeometry y="260" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-62" value="&lt;b&gt;Blueprint Implementation&lt;/b&gt;&lt;br&gt;Movement (1D Movement)&lt;br&gt;Adding specified projectile to Shoot function&lt;div&gt;===Line of sight update====&lt;/div&gt;&lt;div&gt;Line of sight mesh&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="pKIawOWkSoRLGqF8TNIB-57" vertex="1">
+          <mxGeometry y="268" width="290" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-64" value="Mesh will be StaticMesh at the prototyping phase, and change to SkeletalMesh when implementing animation" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="25" y="230" width="205" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.001;entryY=0.155;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="pKIawOWkSoRLGqF8TNIB-64" target="pKIawOWkSoRLGqF8TNIB-58" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-67" value="Projectile" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="715" y="285" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-68" value="Needs to be aware of" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="605" y="315" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pKIawOWkSoRLGqF8TNIB-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.005;exitY=0.902;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="pKIawOWkSoRLGqF8TNIB-58" target="pKIawOWkSoRLGqF8TNIB-67" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="cwa5Yf87xNJD2i_y97zt" name="Line of Sight Upgrade">
+    <mxGraphModel dx="2066" dy="1201" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=8;" edge="1" parent="1" source="DN1PaU6lWEHdA4kg7_tb-1" target="DN1PaU6lWEHdA4kg7_tb-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="25" y="30" width="800" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-2" value="Castle" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="770" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-3" value="&lt;font style=&quot;color: rgb(247, 247, 247);&quot;&gt;Health Bar 10/10&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e51400;fontColor=#ffffff;strokeColor=#B20000;align=left;" vertex="1" parent="1">
+          <mxGeometry x="270.1199999999999" y="51.5" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=filledEdge;strokeWidth=10;endArrow=none;endFill=0;strokeColor=#FF6666;" edge="1" parent="1" source="DN1PaU6lWEHdA4kg7_tb-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="425" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-4" value="Player" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="385" y="450" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-7" value="Press S or Down Arrow key to activate line of sight" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" vertex="1" parent="1">
+          <mxGeometry x="300" y="270" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=4;" edge="1" parent="1" source="DN1PaU6lWEHdA4kg7_tb-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="460" as="sourcePoint" />
+            <mxPoint x="420" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-9" value="Initially starts out very small, but upgrades can make it longer" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" vertex="1" parent="1">
+          <mxGeometry x="450" y="270" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-10" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="30" width="800" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-11" value="Castle" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="520" width="770" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-12" value="&lt;font style=&quot;color: rgb(247, 247, 247);&quot;&gt;Health Bar 10/10&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e51400;fontColor=#ffffff;strokeColor=#B20000;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1265.12" y="51.5" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=filledEdge;strokeWidth=10;endArrow=none;endFill=0;strokeColor=#FF6666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1420" y="350" as="targetPoint" />
+            <mxPoint x="1419.76" y="470.0000000000001" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-14" value="Player" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="450" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-17" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;&lt;b&gt;On Upgrade&lt;/b&gt;&lt;/font&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="850" y="370" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DN1PaU6lWEHdA4kg7_tb-18" value="Gets longer" style="shape=note;size=20;whiteSpace=wrap;html=1;strokeColor=#3333FF;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="320" width="100" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
