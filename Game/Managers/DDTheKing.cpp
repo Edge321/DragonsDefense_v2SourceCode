@@ -155,7 +155,7 @@ void ADDTheKing::CheckDisrupterAppearance()
 void ADDTheKing::CheckSpecialWave()
 {
 	//insert maybe several types of special wave events?
-	if (EnemySpawner->GetCurrentWave() == SpecialWaveNumber) {
+	if (EnemySpawner->GetCurrentWave() >= SpecialWaveNumber) {
 		//do something!
 		IsSpecialWave = true;
 		SpecialWaveNumber += FMath::RandRange(LowerSpecialWaveRandomizer, HigherSpecialWaveRandomizer);
@@ -663,7 +663,7 @@ void ADDTheKing::PityPointRewards()
 											BaseEnemyAmountReductionWeight + EnemyPoolRemovalWeight,
 											BaseEnemyAmountReductionWeight + EnemyPoolRemovalWeight + StressMeterMinimumIncreaseWeight };
 
-	//For increasing the pity rewards as time goes on
+	//For increasing the pity rewards as time goes on, prevents pity rewards being too easy to obtain in late game
 	float EnemyReductionPityRewardMultiplier = 1.0f + (EnemyReductionPityRewardMultiplierIncrement * (EnemySpawner->GetCurrentWave() - 1));
 	float EnemyPoolPityRewardMultiplier = 1.0f + (EnemyPoolPityRewardMultiplierIncrement * (EnemySpawner->GetCurrentWave() - 1));
 	float StressMeterPityRewardMultiplier = 1.0f + (StressMeterPityRewardMultiplierIncrement * (EnemySpawner->GetCurrentWave() - 1));
@@ -940,7 +940,7 @@ void ADDTheKing::OnStressMeterChange(EDDStressMeterTypes StressType)
 	EnemySpawner->SetLowSpawnInterval(FMath::Max(ActualLowSpawnInterval, LowSpawnIntervalClamp));
 
 	//Only do this strategic spawning after an enemy spawn
-	//In other words, do potential strategic spawning for then next enemy spawn
+	//In other words, do potential strategic spawning for the next enemy spawn
 	if (StressType == EDDStressMeterTypes::EnemySpawn) {
 		const int32 CurrentPlaceableAmount = PlaceableManager->GetPlaceablePool().Num();
 		const int32 BeginningPlaceableAmount = PlaceableManager->GetBeginningPlaceableAmount();
