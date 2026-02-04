@@ -89,6 +89,10 @@ private:
 	void GameStartEventFunction();
 	UFUNCTION()
 	void WaveStartEventFunction();
+	UFUNCTION()
+	void GameOverEventFunction();
+	UFUNCTION()
+	void GameWaveJumpChoiceEventFunction();
 
 	void InitializeEmotionMaps();
 	void FindRichTextBlock();
@@ -97,7 +101,7 @@ private:
 	const FString GetEnumStringWithSpacedUppercases(const ERichTextAttribute RichTextAttribute);
 	void HideAnnouncement();
 
-	//I wish I could do it as a UPROPERTY directly but Unreal doesn't like TArray in TMap for UPROPERTYs
+	//I wish I could do it as a UPROPERTY for blueprint access but Unreal doesn't like TArray in TMap for UPROPERTYs
 	TMap<EEmotionState, TArray<FMessageAttributes>> EmotionMessagesMap;
 
 	URichTextBlock* RichTextBlock;

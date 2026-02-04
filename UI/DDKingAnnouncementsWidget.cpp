@@ -16,6 +16,10 @@ void UDDKingAnnouncementsWidget::InitializeWidget()
 	if (GameMode) {
 		GameMode->OnGameStart.AddDynamic(this, &UDDKingAnnouncementsWidget::GameStartEventFunction);
 		GameMode->OnWaveStart.AddDynamic(this, &UDDKingAnnouncementsWidget::WaveStartEventFunction);
+		GameMode->OnGameOver.AddDynamic(this, &UDDKingAnnouncementsWidget::GameOverEventFunction);
+		GameMode->OnGameRestart.AddDynamic(this, &UDDKingAnnouncementsWidget::GameOverEventFunction);
+		GameMode->OnGameWon.AddDynamic(this, &UDDKingAnnouncementsWidget::GameOverEventFunction);
+		GameMode->OnGameWaveJumpChoice.AddDynamic(this, &UDDKingAnnouncementsWidget::GameWaveJumpChoiceEventFunction);
 	}
 
 	FindRichTextBlock();
@@ -56,7 +60,7 @@ void UDDKingAnnouncementsWidget::GameStartEventFunction()
 
 void UDDKingAnnouncementsWidget::WaveStartEventFunction()
 {
-	int32 CurrentWave = EnemySpawnerRef->GetCurrentWave();
+	const int32 CurrentWave = EnemySpawnerRef->GetCurrentWave();
 
 	if ((CurrentWave % EmotionChangeWave) == 0 && (int32)CurrentEmotion < StaticEnum<EEmotionState>()->NumEnums()) {
 		CurrentEmotion = (EEmotionState)((int32)CurrentEmotion + 1);
@@ -67,6 +71,24 @@ void UDDKingAnnouncementsWidget::WaveStartEventFunction()
 		MakeAnnouncement(ConvertMessageToRichText(GetMessageAttribute()));
 		GetWorld()->GetTimerManager().SetTimer(TextLifetimeHandler, this, &UDDKingAnnouncementsWidget::HideAnnouncement, TextLifetime, false);
 	}
+}
+
+void UDDKingAnnouncementsWidget::GameOverEventFunction() 
+{
+	CurrentEmotion = EEmotionState::Amused;
+}
+
+void UDDKingAnnouncementsWidget::GameWaveJumpChoiceEventFunction() 
+{
+	int32 CurrentWave = 1;
+	if (EnemySpawnerRef.IsValid()) {
+		CurrentWave = EnemySpawnerRef->GetCurrentWave();
+	}
+	else {
+		CurrentWave = Cast<ADDGameModeBase>(GetWorld()->GetAuthGameMode())->GetEnemySpawner().GetCurrentWave();
+	}
+	const int32 EmotionChange = FMath::Clamp(CurrentWave / EmotionChangeWave, 0, StaticEnum<EEmotionState>()->NumEnums() - 1);
+	CurrentEmotion = (EEmotionState)EmotionChange;
 }
 
 void UDDKingAnnouncementsWidget::InitializeEmotionMaps()
@@ -87,8 +109,8 @@ void UDDKingAnnouncementsWidget::FindRichTextBlock()
 
 FMessageAttributes UDDKingAnnouncementsWidget::GetMessageAttribute() const
 {
-	int32 TotalMessages = EmotionMessagesMap[CurrentEmotion].Num();
-	int32 RandomMessage = FMath::RandRange(0, TotalMessages - 1);
+	const int32 TotalMessages = EmotionMessagesMap[CurrentEmotion].Num();
+	const int32 RandomMessage = FMath::RandRange(0, TotalMessages - 1);
 	return EmotionMessagesMap[CurrentEmotion][RandomMessage];
 }
 

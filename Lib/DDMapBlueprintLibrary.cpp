@@ -22,6 +22,17 @@ TArray<FDDPlaceableAmountPair> UDDMapBlueprintLibrary::ConvertMapToArrayPair(TMa
 	return PlaceableArray;
 }
 
+TArray<int32> UDDMapBlueprintLibrary::ConvertIntMapToArray(TMap<int32, int32> IntMap) 
+{
+	TArray<int32> IntArray;
+
+	for (TPair<int32, int32> IntPair : IntMap) {
+		IntArray.Add(IntPair.Value);
+	}
+
+	return IntArray;
+}
+
 TMap<FString, FString> UDDMapBlueprintLibrary::ConvertDataTableToMap(const UDataTable* DataTable, const FString Seperator)
 {
 	TMap<FString, FString> DataTableMap;

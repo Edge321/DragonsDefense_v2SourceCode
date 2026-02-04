@@ -5,5 +5,5 @@
 
 UDDSaveGame::UDDSaveGame()
 {
-	WaveHighScore = 1;
+	WaveHighestScore = 1;
 }

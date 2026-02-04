@@ -57,18 +57,26 @@ void ADDGameModeBase::BeginPlay()
 	MainMenuWidget->OnMainMenuVillagerpedia.BindUObject(this, &ADDGameModeBase::ExecuteOpenVillagerpediaDelegate);
 	PauseMenuWidget->OnPauseMenuVillagerpedia.BindUObject(this, &ADDGameModeBase::ExecuteOpenVillagerpediaDelegate);
 	MainMenuWidget->OnToggleEnemyAttackBoxes.BindUObject(EnemySpawner, &ADDEnemySpawner::ToggleEnemyAttackBoxesEventFunction);
+	MainMenuWidget->OnWaveJumpChoice.BindUObject(this, &ADDGameModeBase::WaveJumpChoiceEventFunction);
 
 	if (bFullSaveDebug) {
 		TArray<int> IDArray;
+		TMap<int32, int32> DifficultyHighScoreMap = {
+			{0, LARGE_WAVE_HIGH_SCORE},
+			{1, LARGE_WAVE_HIGH_SCORE},
+			{2, LARGE_WAVE_HIGH_SCORE}
+		};
 		for (int32 i = 0; i < (int32) EDDEnemyIDs::ENEMY_TOTAL; i++) IDArray.Add(i);
 		VillagerpediaWidget->LoadFoundVillagers(IDArray);
-		SoulShopWidget->LoadUnlockedButtons(999999999);
+		SoulShopWidget->LoadUnlockedButtons(LARGE_WAVE_HIGH_SCORE);
+		MainMenuWidget->LoadUnlockedWaves(DifficultyHighScoreMap);
 	}
 	else {
 		UDDSaveGame* LoadData = Cast<UDDSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlotName, 0));
 		if (LoadData) {
 			VillagerpediaWidget->LoadFoundVillagers(LoadData->VillagersDiscovered);
-			SoulShopWidget->LoadUnlockedButtons(LoadData->WaveHighScore);
+			SoulShopWidget->LoadUnlockedButtons(LoadData->WaveHighestScore);
+			MainMenuWidget->LoadUnlockedWaves(LoadData->DifficultyWaveHighScore);
 			//Difficulties won is loaded in the InitGame() function
 		}
 		else {
@@ -98,11 +106,13 @@ void ADDGameModeBase::InitGame(const FString& MapName, const FString& Options, F
 
 	for (int32 i = 0; i < (int32)EDifficulty::DIFFICULTIES_TOTAL; i++) {
 		DifficultiesWon.Add((EDifficulty)i, false);
+		DifficultyWaveHighScores.Add((EDifficulty)i, 1);
 	}
 
 	if (bFullSaveDebug) {
 		for (int32 i = 0; i < (int32)EDifficulty::DIFFICULTIES_TOTAL; i++) {
 			DifficultiesWon[(EDifficulty)i] = true;
+			DifficultyWaveHighScores[(EDifficulty)i] = LARGE_WAVE_HIGH_SCORE;
 		}
 	}
 	else {
@@ -110,6 +120,9 @@ void ADDGameModeBase::InitGame(const FString& MapName, const FString& Options, F
 		if (LoadData) {
 			for (int32 DifficultyInt : LoadData->DifficultiesWon) {
 				DifficultiesWon[(EDifficulty)DifficultyInt] = true;
+			}
+			for (TPair<int32, int32> Pair : LoadData->DifficultyWaveHighScore) {
+				DifficultyWaveHighScores[(EDifficulty)Pair.Key] = Pair.Value;
 			}
 		}
 		else {
@@ -382,6 +395,11 @@ ADDTheKing* ADDGameModeBase::BlueprintGetTheKing() const
 	return TheKing;
 }
 
+void ADDGameModeBase::WaveJumpChoiceEventFunction() const 
+{
+	OnGameWaveJumpChoice.Broadcast();
+}
+
 template<class T>
 T* ADDGameModeBase::AddWidgetToViewport(TSubclassOf<UUserWidget> WidgetClass, int ZOrder)
 {
@@ -439,16 +457,19 @@ void ADDGameModeBase::SaveGame() const
 	if (bFullSaveDebug) return; //dont bother saving with the full save debug option enabled
 
 	UDDSaveGame* SaveData = Cast<UDDSaveGame>(UGameplayStatics::CreateSaveGameObject(UDDSaveGame::StaticClass()));
-	UDDSaveGame* LoadData = Cast<UDDSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlotName, 0));
+	const UDDSaveGame* LoadData = Cast<UDDSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlotName, 0));
+
 	SaveData->VillagersDiscovered = VillagerpediaWidget->GetVillagersDiscovered();
 	TArray<int32> DifficultiesWonInt;
 	for (EDifficulty DifficultyEnum : GetDifficultiesWon()) DifficultiesWonInt.Add((int32)DifficultyEnum);
 	SaveData->DifficultiesWon = DifficultiesWonInt;
 	if (LoadData) {
-		SaveData->WaveHighScore = FMathf::Max(LoadData->WaveHighScore, WaveHighScore);
+		SaveData->WaveHighestScore = FMathf::Max(LoadData->WaveHighestScore, WaveHighScore);
+		SaveData->DifficultyWaveHighScore[(int32)Difficulty] = FMathf::Max(LoadData->DifficultyWaveHighScore[(int32)Difficulty], WaveHighScore);
 	}
 	else {
-		SaveData->WaveHighScore = WaveHighScore;
+		SaveData->WaveHighestScore = WaveHighScore;
+		SaveData->DifficultyWaveHighScore[(int32)Difficulty] = WaveHighScore;
 	}
 
 	if (!UGameplayStatics::SaveGameToSlot(SaveData, SaveSlotName, 0)) {

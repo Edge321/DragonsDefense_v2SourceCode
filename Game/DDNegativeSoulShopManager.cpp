@@ -36,9 +36,10 @@ void ADDNegativeSoulShopManager::BeginPlay()
 		GameModeRef->OnGameOver.AddDynamic(this, &ADDNegativeSoulShopManager::GameOverEventFunction);
 		GameModeRef->OnGameRestart.AddDynamic(this, &ADDNegativeSoulShopManager::GameOverEventFunction);
 		GameModeRef->OnGameWon.AddDynamic(this, &ADDNegativeSoulShopManager::GameOverEventFunction);
+		GameModeRef->OnGameWaveJumpChoice.AddDynamic(this, &ADDNegativeSoulShopManager::GameWaveJumpChoiceEventFunction);
 	}
 
-	ActualSpecialDowngradeWave = SpecialDowngradeWave;
+	ActualSpecialDowngradeWave = SpecialDowngradeWave + SpecialDowngradeWaveOffset;
 
 	InitDowngrades();
 	InitNumberPool();
@@ -305,4 +306,11 @@ void ADDNegativeSoulShopManager::GameOverEventFunction()
 	WaveDurationLeft = 0;
 	NegativeShopWidget->SetIsDowngradeActive(false);
 	NegativeShopWidget->SetIsRewardActive(false);
+}
+
+void ADDNegativeSoulShopManager::GameWaveJumpChoiceEventFunction() 
+{
+	const int32 CurrentWave = GameModeRef->GetEnemySpawner().GetCurrentWave();
+	const int32 Multiplication = ((CurrentWave - SpecialDowngradeWaveOffset) / SpecialDowngradeWave) + 1;
+	ActualSpecialDowngradeWave = (SpecialDowngradeWave * Multiplication) + SpecialDowngradeWaveOffset;
 }

@@ -36,6 +36,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGameStart);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnUpdateSouls);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWaveOver);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWaveStart);
+//When the player decides to start on a wave that isn't the beginning
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGameWaveJumpChoice);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnOpenVillagerpedia, UUserWidget*, Widget);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPauseChangeState, bool, IsPaused);
 
@@ -161,6 +163,8 @@ public:
 	FOnGameRestart OnGameRestart;
 	UPROPERTY(BlueprintAssignable, Category = "Delegate")
 	FOnPauseChangeState OnPauseChangeState;
+	UPROPERTY(BlueprintAssignable, Category = "Delegate")
+	FOnGameWaveJumpChoice OnGameWaveJumpChoice;
 
 private:
 	//Adds any subclass of UUserWidget to the viewport. Returns whatever class
@@ -200,6 +204,9 @@ private:
 	UFUNCTION(BlueprintCallable, Category = "Getters")
 	ADDTheKing* BlueprintGetTheKing() const;
 
+	UFUNCTION()
+	void WaveJumpChoiceEventFunction() const;
+
 	ADDProjectileManager* ProjectileManager;
 	ADDPlaceableManager* PlaceableManager;
 	ADDNegativeSoulShopManager* NegativeShopManager;
@@ -225,6 +232,9 @@ private:
 
 	//bool determines if the difficulty has been won
 	TMap<EDifficulty, bool> DifficultiesWon;
+	TMap<EDifficulty, int32> DifficultyWaveHighScores;
+
+	const int32 LARGE_WAVE_HIGH_SCORE = 9999999;
 
 	int32 WaveHighScore = 1;
 

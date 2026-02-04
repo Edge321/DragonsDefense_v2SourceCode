@@ -25,7 +25,16 @@ public:
 	//Difficulties won based on 0, 1, 2 (Easy, Normal, Hard)
 	UPROPERTY(VisibleAnywhere, Category = "Save | Difficulty")
 	TArray<int32> DifficultiesWon;
+	//Key is difficulty, value is high score
+	//Difficulties based on 0, 1, 2 (Easy, Normal, Hard)
+	//Keeps track of wave high scores in each difficulty respectively
 	UPROPERTY(VisibleAnywhere, Category = "Save | Wave")
-	int32 WaveHighScore;
+	TMap<int32, int32> DifficultyWaveHighScore = {
+		{0, 1},
+		{1, 1},
+		{2, 1}
+	};
+	UPROPERTY(VisibleAnywhere, Category = "Save | Wave")
+	int32 WaveHighestScore;
 
 };

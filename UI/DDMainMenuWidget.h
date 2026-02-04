@@ -11,6 +11,8 @@ enum class EDifficulty : uint8;
 
 DECLARE_DELEGATE_OneParam(FOnMainMenuVillagerpedia, UUserWidget*);
 DECLARE_DELEGATE_OneParam(FOnToggleEnemyAttackBoxes, bool);
+//When the player decides to start on a wave that isn't the beginning
+DECLARE_DELEGATE(FOnWaveJumpChoice);
 
 UCLASS()
 class DRAGONSDEFENSE_V2_API UDDMainMenuWidget : public UUserWidget
@@ -18,7 +20,6 @@ class DRAGONSDEFENSE_V2_API UDDMainMenuWidget : public UUserWidget
 	GENERATED_BODY()
 
 protected:
-	
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Difficulty Menu")
 	FString EasyInfoText;
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Difficulty Menu")
@@ -28,6 +29,8 @@ protected:
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Difficulty Menu")
 	float ActiveColorMultiplier = 0.5f;
 
+	UFUNCTION(BlueprintCallable)
+	void InitializeWidget();
 	UFUNCTION(BlueprintCallable)
 	void Start();
 	UFUNCTION(BlueprintCallable)
@@ -46,6 +49,8 @@ protected:
 	void OpenVillagerpedia();
 	UFUNCTION(BlueprintCallable)
 	void ExecuteToggleEnemyAttackBoxes(const bool AttackBoxVisibility) const;
+	UFUNCTION(BlueprintCallable)
+	void SetIsWaveJumping(const bool WaveJumping);
 	UFUNCTION(BlueprintCallable)
 	void SwitchDifficultyButton(UButton* DestButton);
 	UFUNCTION(BlueprintCallable)
@@ -71,12 +76,22 @@ public:
 
 	FOnMainMenuVillagerpedia OnMainMenuVillagerpedia;
 	FOnToggleEnemyAttackBoxes OnToggleEnemyAttackBoxes;
+	//When the player decides to start on a wave that isn't the beginning
+	FOnWaveJumpChoice OnWaveJumpChoice;
+
+	UFUNCTION(BlueprintImplementableEvent, meta = (ForceAsFunction))
+	void LoadUnlockedWaves(const TMap<int32, int32>& DifficultyWaveHighScores);
 
 private:
 	
+	UFUNCTION()
+	void GameStartEventFunction();
+
 	FLinearColor OriginalDifficultyButtonColor;
 	FLinearColor OriginalWaveButtonColor;
 
 	int32 CurrentWaveChosen;
+	//Flag for if the player decided to wave jump
+	bool bIsWaveJumping = false;
 
 };

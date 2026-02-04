@@ -8,6 +8,14 @@
 #include "DragonsDefense_v2/Game/DDGameModeBase.h"
 #include "DragonsDefense_v2/Game/DDEnemySpawner.h"
 
+void UDDMainMenuWidget::InitializeWidget()
+{
+	ADDGameModeBase* GameMode = Cast<ADDGameModeBase>(GetWorld()->GetAuthGameMode());
+	if (GameMode) {
+		GameMode->OnGameStart.AddDynamic(this, &UDDMainMenuWidget::GameStartEventFunction);
+	}
+}
+
 void UDDMainMenuWidget::Start()
 {
 	ADDGameModeBase* GameMode = Cast<ADDGameModeBase>(GetWorld()->GetAuthGameMode());
@@ -61,6 +69,11 @@ void UDDMainMenuWidget::ExecuteToggleEnemyAttackBoxes(const bool AttackBoxVisibi
 	OnToggleEnemyAttackBoxes.ExecuteIfBound(AttackBoxVisibility);
 }
 
+void UDDMainMenuWidget::SetIsWaveJumping(const bool WaveJumping) 
+{
+	bIsWaveJumping = WaveJumping;
+}
+
 void UDDMainMenuWidget::SwitchDifficultyButton(UButton* DestButton) 
 {
 	if (CurrentDifficultyButton.IsValid()) {
@@ -108,5 +121,12 @@ void UDDMainMenuWidget::ResetWaveButton()
 	if (CurrentWaveButton.IsValid()) {
 		CurrentWaveButton->SetBackgroundColor(OriginalWaveButtonColor);
 		CurrentWaveButton.Reset();
+	}
+}
+
+void UDDMainMenuWidget::GameStartEventFunction() 
+{
+	if (bIsWaveJumping) {
+		OnWaveJumpChoice.ExecuteIfBound();
 	}
 }

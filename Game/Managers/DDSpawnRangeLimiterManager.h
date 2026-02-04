@@ -100,6 +100,7 @@ private:
 	void ShowSpawnPointersWithinLimit();
 	void HideAllSpawnPointersInstantly();
 	void HideAllSpawnPointersFading();
+	void IncreaseSpawnRange();
 
 	UFUNCTION()
 	void FadeSpawnPointers(const float Value);
@@ -114,6 +115,8 @@ private:
 	void WaveOverEventFunction();
 	UFUNCTION()
 	void OnSpawnPointersInvisible();
+	UFUNCTION()
+	void GameWaveJumpChoiceEventFunction();
 
 	TArray<FVector> SpawnPointerLocations;
 	UPROPERTY()

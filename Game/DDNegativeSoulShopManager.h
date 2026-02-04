@@ -41,7 +41,10 @@ protected:
 
 	//When a special downgrade is triggered every N wave
 	UPROPERTY(EditDefaultsOnly, Category = "Downgrades | Special Downgrades")
-	int32 SpecialDowngradeWave = 11;
+	int32 SpecialDowngradeWave = 10;
+	//Starting offset of the special downgrade wave, done as: SpecialDowngradeWave + SpecialDowngradeWaveOffset
+	UPROPERTY(EditDefaultsOnly, Category = "Downgrades | Special Downgrades")
+	int32 SpecialDowngradeWaveOffset = 1;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Debug")
 	bool bEnableDebugger = true;
@@ -88,6 +91,8 @@ private:
 	void WaveOverEventFunction();
 	UFUNCTION()
 	void GameOverEventFunction();
+	UFUNCTION()
+	void GameWaveJumpChoiceEventFunction();
 
 	ADDGameModeBase* GameModeRef;
 	UDDNegativeSoulShopWidget* NegativeShopWidget;

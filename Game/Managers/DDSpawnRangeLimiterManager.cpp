@@ -36,6 +36,7 @@ void ADDSpawnRangeLimiterManager::BeginPlay()
 		GameMode->OnGameWon.AddDynamic(this, &ADDSpawnRangeLimiterManager::GameOverEventFunction);
 		GameMode->OnWaveStart.AddDynamic(this, &ADDSpawnRangeLimiterManager::WaveStartEventFunction);
 		GameMode->OnWaveOver.AddDynamic(this, &ADDSpawnRangeLimiterManager::WaveOverEventFunction);
+		GameMode->OnGameWaveJumpChoice.AddDynamic(this, &ADDSpawnRangeLimiterManager::GameWaveJumpChoiceEventFunction);
 	}
 
 	InitializeRedLineLimiters();
@@ -225,6 +226,22 @@ void ADDSpawnRangeLimiterManager::HideAllSpawnPointersFading()
 		FadingDelay);
 }
 
+void ADDSpawnRangeLimiterManager::IncreaseSpawnRange() 
+{
+	const FVector RedLineLocation = LeftRedLineLimiter->GetComponentLocation();
+
+	CurrentSpawnRangeLimit.X -= SpawnRangeIncrease;
+	CurrentSpawnRangeLimit.Y += SpawnRangeIncrease;
+
+	LeftRedLineLimiter->SetWorldLocation(FVector(RedLineLocation.X, CurrentSpawnRangeLimit.X, RedLineLocation.Z));
+	RightRedLineLimiter->SetWorldLocation(FVector(RedLineLocation.X, CurrentSpawnRangeLimit.Y, RedLineLocation.Z));
+
+	const FVector TopLeftRedLocation = FVector(TopLeftRedLineLimiter->GetComponentLocation().X, CurrentSpawnRangeLimit.X - (TopRedLinesLength / 2.0f), RedLineLocation.Z);
+	const FVector TopRightRedLocation = FVector(TopRightRedLineLimiter->GetComponentLocation().X, CurrentSpawnRangeLimit.Y + (TopRedLinesLength / 2.0f), RedLineLocation.Z);
+	TopLeftRedLineLimiter->SetWorldLocation(TopLeftRedLocation);
+	TopRightRedLineLimiter->SetWorldLocation(TopRightRedLocation);
+}
+
 void ADDSpawnRangeLimiterManager::FadeSpawnPointers(const float Value) 
 {
 	for (int32 i = 0; i < SpawnPointers.Num(); i++) {
@@ -302,18 +319,7 @@ void ADDSpawnRangeLimiterManager::WaveOverEventFunction()
 {
 	if (EnemySpawnerRef->GetCurrentWave() % SpawnRangeIncreaseWave == 0)
 	{
-		const FVector RedLineLocation = LeftRedLineLimiter->GetComponentLocation();
-
-		CurrentSpawnRangeLimit.X -= SpawnRangeIncrease;
-		CurrentSpawnRangeLimit.Y += SpawnRangeIncrease;
-
-		LeftRedLineLimiter->SetWorldLocation(FVector(RedLineLocation.X, CurrentSpawnRangeLimit.X, RedLineLocation.Z));
-		RightRedLineLimiter->SetWorldLocation(FVector(RedLineLocation.X, CurrentSpawnRangeLimit.Y, RedLineLocation.Z));
-
-		const FVector TopLeftRedLocation = FVector(TopLeftRedLineLimiter->GetComponentLocation().X, CurrentSpawnRangeLimit.X - (TopRedLinesLength / 2.0f), RedLineLocation.Z);
-		const FVector TopRightRedLocation = FVector(TopRightRedLineLimiter->GetComponentLocation().X, CurrentSpawnRangeLimit.Y + (TopRedLinesLength / 2.0f), RedLineLocation.Z);
-		TopLeftRedLineLimiter->SetWorldLocation(TopLeftRedLocation);
-		TopRightRedLineLimiter->SetWorldLocation(TopRightRedLocation);
+		IncreaseSpawnRange();
 	}
 
 	ShowSpawnPointersWithinLimit();
@@ -322,4 +328,13 @@ void ADDSpawnRangeLimiterManager::WaveOverEventFunction()
 void ADDSpawnRangeLimiterManager::OnSpawnPointersInvisible() 
 {
 	bAllArrowsHidden = true;
+}
+
+void ADDSpawnRangeLimiterManager::GameWaveJumpChoiceEventFunction() 
+{
+	const int32 LimiterIncreaseTimes = EnemySpawnerRef->GetCurrentWave() / SpawnRangeIncreaseWave;
+
+	for (int32 i = 0; i < LimiterIncreaseTimes; i++) {
+		IncreaseSpawnRange();
+	}
 }

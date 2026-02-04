@@ -31,7 +31,10 @@ class DRAGONSDEFENSE_V2_API UDDMapBlueprintLibrary : public UBlueprintFunctionLi
 
 	UFUNCTION(BlueprintCallable, Category = "Conversion")
 	static TArray<FDDPlaceableAmountPair> ConvertMapToArrayPair(TMap<TSubclassOf<ADDPlaceable>, int32> PlaceablesMap);
-	
+	//Used to convert difficulty map from save file to array
+	UFUNCTION(BlueprintCallable, Category = "Conversion")
+	static TArray<int32> ConvertIntMapToArray(TMap<int32, int32> IntMap);
+
 	/// <summary>
 	/// Uses the rows of Data Tables, and converts it to a map, based on the Seperator variable.
 	/// The value is the row name, and the Key is the string after the Seperator
