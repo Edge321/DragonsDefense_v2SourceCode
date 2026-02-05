@@ -61,10 +61,10 @@ void ADDGameModeBase::BeginPlay()
 
 	if (bFullSaveDebug) {
 		TArray<int> IDArray;
-		TMap<int32, int32> DifficultyHighScoreMap = {
-			{0, LARGE_WAVE_HIGH_SCORE},
-			{1, LARGE_WAVE_HIGH_SCORE},
-			{2, LARGE_WAVE_HIGH_SCORE}
+		TMap<EDifficulty, int32> DifficultyHighScoreMap = {
+			{EDifficulty::Easy, LARGE_WAVE_HIGH_SCORE},
+			{EDifficulty::Normal, LARGE_WAVE_HIGH_SCORE},
+			{EDifficulty::Hard, LARGE_WAVE_HIGH_SCORE}
 		};
 		for (int32 i = 0; i < (int32) EDDEnemyIDs::ENEMY_TOTAL; i++) IDArray.Add(i);
 		VillagerpediaWidget->LoadFoundVillagers(IDArray);
@@ -118,11 +118,11 @@ void ADDGameModeBase::InitGame(const FString& MapName, const FString& Options, F
 	else {
 		UDDSaveGame* LoadData = Cast<UDDSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlotName, 0));
 		if (LoadData) {
-			for (int32 DifficultyInt : LoadData->DifficultiesWon) {
-				DifficultiesWon[(EDifficulty)DifficultyInt] = true;
+			for (const EDifficulty DifficultyWon : LoadData->DifficultiesWon) {
+				DifficultiesWon[DifficultyWon] = true;
 			}
-			for (TPair<int32, int32> Pair : LoadData->DifficultyWaveHighScore) {
-				DifficultyWaveHighScores[(EDifficulty)Pair.Key] = Pair.Value;
+			for (TPair<EDifficulty, int32> Pair : LoadData->DifficultyWaveHighScore) {
+				DifficultyWaveHighScores[Pair.Key] = Pair.Value;
 			}
 		}
 		else {
@@ -319,6 +319,7 @@ void ADDGameModeBase::WaveOver()
 	OnWaveOver.Broadcast();
 	OnPlacing.Broadcast(false);
 	WaveHighScore = EnemySpawner->GetCurrentWave() > WaveHighScore ? EnemySpawner->GetCurrentWave() : WaveHighScore;
+	DifficultyWaveHighScores[Difficulty] = WaveHighScore > DifficultyWaveHighScores[Difficulty] ? WaveHighScore : DifficultyWaveHighScores[Difficulty];
 
 	SaveGame();
 }
@@ -446,6 +447,7 @@ void ADDGameModeBase::ResetGameData()
 	TotalEnemiesKilled = 0;
 	TotalSouls = 0;
 	TotalAcummulatedSouls = 0;
+	WaveHighScore = 1;
 	UpdateScoreText();
 	UpdateSoulsText();
 	OnPlacing.Broadcast(false);
@@ -457,22 +459,30 @@ void ADDGameModeBase::SaveGame() const
 	if (bFullSaveDebug) return; //dont bother saving with the full save debug option enabled
 
 	UDDSaveGame* SaveData = Cast<UDDSaveGame>(UGameplayStatics::CreateSaveGameObject(UDDSaveGame::StaticClass()));
-	const UDDSaveGame* LoadData = Cast<UDDSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlotName, 0));
+	UDDSaveGame* LoadData = Cast<UDDSaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlotName, 0));
 
 	SaveData->VillagersDiscovered = VillagerpediaWidget->GetVillagersDiscovered();
-	TArray<int32> DifficultiesWonInt;
-	for (EDifficulty DifficultyEnum : GetDifficultiesWon()) DifficultiesWonInt.Add((int32)DifficultyEnum);
+	TArray<EDifficulty> DifficultiesWonInt;
+	for (EDifficulty DifficultyEnum : GetDifficultiesWon()) DifficultiesWonInt.Add(DifficultyEnum);
 	SaveData->DifficultiesWon = DifficultiesWonInt;
+
+	for (TPair<EDifficulty, int32> DifficultyPair : DifficultyWaveHighScores) {
+		SaveData->DifficultyWaveHighScore[DifficultyPair.Key] = FMathf::Max(LoadData->DifficultyWaveHighScore[DifficultyPair.Key], DifficultyWaveHighScores[DifficultyPair.Key]);
+	}
+
+	SaveData->DifficultyWaveHighScore[EDifficulty::Normal] = 99;
+
 	if (LoadData) {
 		SaveData->WaveHighestScore = FMathf::Max(LoadData->WaveHighestScore, WaveHighScore);
-		SaveData->DifficultyWaveHighScore[(int32)Difficulty] = FMathf::Max(LoadData->DifficultyWaveHighScore[(int32)Difficulty], WaveHighScore);
 	}
 	else {
 		SaveData->WaveHighestScore = WaveHighScore;
-		SaveData->DifficultyWaveHighScore[(int32)Difficulty] = WaveHighScore;
 	}
 
 	if (!UGameplayStatics::SaveGameToSlot(SaveData, SaveSlotName, 0)) {
 		UE_LOG(LogTemp, Error, TEXT("Failed to save %s!"), *SaveSlotName)
+	}
+	else {
+		OnGameSave.Broadcast(SaveData);
 	}
 }

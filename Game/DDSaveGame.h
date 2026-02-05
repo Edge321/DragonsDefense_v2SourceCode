@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/SaveGame.h"
+#include "DragonsDefense_v2/Game/DDDifficulty.h"
 #include "DDSaveGame.generated.h"
 
 /**
@@ -20,21 +21,21 @@ public:
 public:
 
 	//Villagers discovered based on ID
-	UPROPERTY(VisibleAnywhere, Category = "Save | Villager")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Save | Villager")
 	TArray<int32> VillagersDiscovered;
-	//Difficulties won based on 0, 1, 2 (Easy, Normal, Hard)
-	UPROPERTY(VisibleAnywhere, Category = "Save | Difficulty")
-	TArray<int32> DifficultiesWon;
+	//Contains list of difficulties won
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Save | Difficulty")
+	TArray<EDifficulty> DifficultiesWon;
 	//Key is difficulty, value is high score
 	//Difficulties based on 0, 1, 2 (Easy, Normal, Hard)
 	//Keeps track of wave high scores in each difficulty respectively
-	UPROPERTY(VisibleAnywhere, Category = "Save | Wave")
-	TMap<int32, int32> DifficultyWaveHighScore = {
-		{0, 1},
-		{1, 1},
-		{2, 1}
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Save | Wave")
+	TMap<EDifficulty, int32> DifficultyWaveHighScore = {
+		{EDifficulty::Easy, 1},
+		{EDifficulty::Normal, 1},
+		{EDifficulty::Hard, 1}
 	};
-	UPROPERTY(VisibleAnywhere, Category = "Save | Wave")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Save | Wave")
 	int32 WaveHighestScore;
 
 };

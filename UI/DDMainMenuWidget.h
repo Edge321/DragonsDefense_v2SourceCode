@@ -64,6 +64,8 @@ protected:
 	void OnChosingDifficultyButton();
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, meta = (ForceAsFunction))
 	void OnLeavingDifficultyMenu();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, meta = (ForceAsFunction))
+	void EnableWaveButtons(const int32 WaveHighScore);
 
 	UPROPERTY(BlueprintReadOnly)
 	TWeakObjectPtr<UButton> CurrentWaveButton;
@@ -80,7 +82,7 @@ public:
 	FOnWaveJumpChoice OnWaveJumpChoice;
 
 	UFUNCTION(BlueprintImplementableEvent, meta = (ForceAsFunction))
-	void LoadUnlockedWaves(const TMap<int32, int32>& DifficultyWaveHighScores);
+	void LoadUnlockedWaves(const TMap<EDifficulty, int32>& DifficultyWaveHighScores);
 
 private:
 	

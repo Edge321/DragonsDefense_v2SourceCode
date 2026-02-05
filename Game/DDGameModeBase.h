@@ -38,6 +38,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWaveOver);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnWaveStart);
 //When the player decides to start on a wave that isn't the beginning
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGameWaveJumpChoice);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnGameSave, UDDSaveGame*, SaveGame);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnOpenVillagerpedia, UUserWidget*, Widget);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPauseChangeState, bool, IsPaused);
 
@@ -165,6 +166,8 @@ public:
 	FOnPauseChangeState OnPauseChangeState;
 	UPROPERTY(BlueprintAssignable, Category = "Delegate")
 	FOnGameWaveJumpChoice OnGameWaveJumpChoice;
+	UPROPERTY(BlueprintAssignable, Category = "Delegate")
+	FOnGameSave OnGameSave;
 
 private:
 	//Adds any subclass of UUserWidget to the viewport. Returns whatever class
