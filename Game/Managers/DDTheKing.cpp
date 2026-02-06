@@ -51,6 +51,7 @@ void ADDTheKing::BeginPlay()
 		GameMode->OnGameRestart.AddDynamic(this, &ADDTheKing::GameOverEventFunction);
 		GameMode->OnGameWon.AddDynamic(this, &ADDTheKing::GameOverEventFunction);
 		GameMode->OnWaveOver.AddDynamic(this, &ADDTheKing::WaveOverEventFunction);
+		GameMode->OnGameWaveJumpChoice.AddDynamic(this, &ADDTheKing::GameWaveJumpChoiceEventFunction);
 	}
 	else {
 		UE_LOG(LogTemp, Fatal, TEXT("Gamemode was not found! Killing application..."))
@@ -58,6 +59,8 @@ void ADDTheKing::BeginPlay()
 
 	InitializeOccupationSquares();
 	ThreatLevelPerColumn.Init(0.0f, OccupationSquareAmount.Y);
+	//Theres some initialization that can be done within this function
+	ResetVariables();
 }
 
 void ADDTheKing::Tick(float DeltaTime) 
@@ -869,6 +872,20 @@ void ADDTheKing::AddEnemiesToAlwaysAdd()
 	}
 }
 
+void ADDTheKing::ResetVariables() 
+{
+	CurrentStressLevel = 0.0f;
+	ResetTempCastleStressBucketVariables();
+	CastleStressBucketLevel = 0.0f;
+
+	SpecialWaveNumber = FMath::RandRange(LowerStartingSpecialWaveRandomizer, HigherStartingSpecialWaveRandomizer);
+	CurrentWildCardWave = WildCardAppearanceWave;
+	GoldenEnemyChance = OriginalGoldenEnemyChance;
+
+	bIsDisrupterHere = false;
+	IsSpecialWave = false;
+}
+
 void ADDTheKing::OnStressMeterChange(EDDStressMeterTypes StressType)
 {
 	int32 CurrentWave = EnemySpawner->GetCurrentWave();
@@ -1185,9 +1202,6 @@ void ADDTheKing::GameStartEventFunction()
 	PlaceableManager->OnPlaceableDespawn.BindUObject(this, &ADDTheKing::OnStressMeterChange);
 	SoulShopWidget->OnPlayerUpgrade.BindUObject(this, &ADDTheKing::OnStressMeterChange);
 
-	SpecialWaveNumber = FMath::RandRange(LowerStartingSpecialWaveRandomizer, HigherStartingSpecialWaveRandomizer);
-	CurrentWildCardWave = WildCardAppearanceWave;
-
 	OnStartWaveFromBigShop();
 }
 
@@ -1263,7 +1277,16 @@ void ADDTheKing::GameOverEventFunction()
 		}
 	}
 
-	CurrentStressLevel = 0.0f;
-	ResetTempCastleStressBucketVariables();
-	CastleStressBucketLevel = 0.0f;
+	ResetVariables();
+}
+
+void ADDTheKing::GameWaveJumpChoiceEventFunction() 
+{
+	const int32 CurrentWave = EnemySpawner->GetCurrentWave();
+	//+ 1 gives a small buffer so the player isn't hit with a special or wild wave right off the bat
+	const int32 SpecialMultiplier = (CurrentWave + 1) / LowerSpecialWaveRandomizer;
+	const int32 WildMultiplier = (CurrentWave + 1) / LowWildCardAddition;
+
+	SpecialWaveNumber = (SpecialMultiplier * LowerSpecialWaveRandomizer) + FMath::RandRange(LowerSpecialWaveRandomizer, HigherSpecialWaveRandomizer);
+	CurrentWildCardWave = (WildMultiplier * LowWildCardAddition) + FMath::RandRange(LowWildCardAddition, HighWildCardAddition);
 }

@@ -719,6 +719,7 @@ private:
 	void ResolveDowngradeFunctions();
 	//Used for debugging purposes, force an enemy to always be added through the EnemiesToAlwaysAdd variable
 	void AddEnemiesToAlwaysAdd();
+	void ResetVariables();
 
 	UFUNCTION()
 	void OnStressMeterChange(EDDStressMeterTypes StressType);
@@ -741,6 +742,8 @@ private:
 	void OnStartWaveFromBigShop();
 	UFUNCTION()
 	void GameOverEventFunction();
+	UFUNCTION()
+	void GameWaveJumpChoiceEventFunction();
 
 	//Cached calculated player stats from when their upgrades' secret stats were added up
 	FDDSecretStats CachedPlayerSecretStatsFromStats;
@@ -778,8 +781,6 @@ private:
 	bool bIsDisrupterHere = false;
 
 	float CurrentTotalUpgradeThreatLevel;
-	//Holds the entire stress level
-	float CurrentOverallThreatLevel;
 
 	//For the castle stress bucket
 	bool bIsTempBucketLevelSet = false;
