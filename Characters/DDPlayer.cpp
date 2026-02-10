@@ -1,13 +1,11 @@
-// Copyright (c) 2024, Edge Cope Corp. All rights reserved
+// Copyright (c) 2026, Edge Cope Corp. All rights reserved
 
 #include "DDPlayer.h"
 #include <cmath>
-#include "Camera/CameraComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameFramework/FloatingPawnMovement.h"
 //My classes
 #include "DragonsDefense_v2/Game/DDGameModeBase.h"
-#include "DragonsDefense_v2/Game/DDStressMeterTypes.h"
 #include "DragonsDefense_v2/UI/DDNegativeSoulShopWidget.h"
 #include "DragonsDefense_v2/UI/DDSoulShopWidget.h"
 #include "DragonsDefense_v2/Projectile/DDPlayerProjectile.h"
@@ -75,6 +73,7 @@ void ADDPlayer::BeginPlay()
 		GameMode->OnGameRestart.AddDynamic(this, &ADDPlayer::GameRestartEventFunction);
 		GameMode->OnGameWon.AddDynamic(this, &ADDPlayer::GameRestartEventFunction);
 		GameMode->OnWaveOver.AddDynamic(this, &ADDPlayer::WaveOverEventFunction);
+		GameMode->OnGameWaveJumpChoice.AddDynamic(this, &ADDPlayer::WaveOverEventFunction);
 		GameMode->OnWaveStart.AddDynamic(this, &ADDPlayer::WaveStartEventFunction);
 		GameMode->OnPlacing.AddDynamic(this, &ADDPlayer::PlacementEventFunction);
 		GameModeRef = GameMode;

@@ -39,6 +39,7 @@ void ADDEnemySpawner::BeginPlay()
 		GameMode->OnGameRestart.AddDynamic(this, &ADDEnemySpawner::GameOverEventFunction);
 		GameMode->OnGameWon.AddDynamic(this, &ADDEnemySpawner::GameOverEventFunction);
 		GameMode->OnWaveOver.AddDynamic(this, &ADDEnemySpawner::WaveOverEventFunction);
+		GameMode->OnGameWaveJumpChoice.AddDynamic(this, &ADDEnemySpawner::WaveOverEventFunction);
 		GameMode->OnWaveStart.AddDynamic(this, &ADDEnemySpawner::WaveStartEventFunction);
 	}
 

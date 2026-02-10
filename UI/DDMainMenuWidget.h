@@ -86,9 +86,6 @@ public:
 
 private:
 	
-	UFUNCTION()
-	void GameStartEventFunction();
-
 	FLinearColor OriginalDifficultyButtonColor;
 	FLinearColor OriginalWaveButtonColor;
 

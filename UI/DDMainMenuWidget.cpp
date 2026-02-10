@@ -10,10 +10,7 @@
 
 void UDDMainMenuWidget::InitializeWidget()
 {
-	ADDGameModeBase* GameMode = Cast<ADDGameModeBase>(GetWorld()->GetAuthGameMode());
-	if (GameMode) {
-		GameMode->OnGameStart.AddDynamic(this, &UDDMainMenuWidget::GameStartEventFunction);
-	}
+	//Currently nothing occurs
 }
 
 void UDDMainMenuWidget::Start()
@@ -23,6 +20,10 @@ void UDDMainMenuWidget::Start()
 		GameMode->GameStart();
 	}
 	SetVisibility(ESlateVisibility::Hidden);
+	//Intentionally execute wave jumping after starting the game to avoid any possible interference with game start initialization
+	if (bIsWaveJumping) {
+		OnWaveJumpChoice.ExecuteIfBound();
+	}
 }
 
 void UDDMainMenuWidget::SetGameWave() const 
@@ -121,12 +122,5 @@ void UDDMainMenuWidget::ResetWaveButton()
 	if (CurrentWaveButton.IsValid()) {
 		CurrentWaveButton->SetBackgroundColor(OriginalWaveButtonColor);
 		CurrentWaveButton.Reset();
-	}
-}
-
-void UDDMainMenuWidget::GameStartEventFunction() 
-{
-	if (bIsWaveJumping) {
-		OnWaveJumpChoice.ExecuteIfBound();
 	}
 }
