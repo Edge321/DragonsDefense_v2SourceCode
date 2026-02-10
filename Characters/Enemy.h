@@ -175,6 +175,7 @@ public:
 	const float GetMaxSpeed() const;
 	const float GetRarity() const;
 	const float GetProjectileSpeed() const;
+	const int32 GetSoulValue() const;
 	void SetMovementSpeed(const float NewMovementSpeed);
 	const bool GetIsSentientDetectable() const;
 	const bool GetIsTrapDetectable() const;

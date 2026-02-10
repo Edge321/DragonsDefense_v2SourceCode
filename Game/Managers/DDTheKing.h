@@ -415,7 +415,29 @@ protected:
 	//How many pity points does stress meter minimum increase cost?
 	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Pity Points Reduction | Cost")
 	int32 StressMeterMinimumIncreaseCost = 300;
-
+	//Percentage of enemies that are assumed to be basic for the calculated total enemy amount on easy difficulty
+	//Close to 0 is all enemies are assumed to be special
+	//Close to 1 is all enemies are assumed to be basic
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Wave Jump", meta = (ClampMin = "0.0", ClampMax = "1.0", UIMin = "0.0", UIMax = "1.0"))
+	float EasyBasicEnemyRatio = 0.85f;
+	//Percentage of enemies that are assumed to be basic for the calculated total enemy amount on normal difficulty
+	//Close to 0 is all enemies are assumed to be special
+	//Close to 1 is all enemies are assumed to be basic
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Wave Jump", meta = (ClampMin = "0.0", ClampMax = "1.0", UIMin = "0.0", UIMax = "1.0"))
+	float NormalBasicEnemyRatio = 0.8f;
+	//Percentage of enemies that are assumed to be basic for the calculated total enemy amount on hard difficulty
+	//Close to 0 is all enemies are assumed to be special
+	//Close to 1 is all enemies are assumed to be basic
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Wave Jump", meta = (ClampMin = "0.0", ClampMax = "1.0", UIMin = "0.0", UIMax = "1.0"))
+	float HardBasicEnemyRatio = 0.75f;
+	//Bonus souls for enemies, a multiplier for the total enemies calculated
+	//E.g. CalculatedEnemyAmount * SpecialEnemySoulBonus
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Wave Jump")
+	int32 SpecialEnemySoulBonus = 2;
+	//What is the interval of the set wave jumps?
+	//As of this writing, they are 1, 11, 21, etc., so 10 wave intervals
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Wave Jump")
+	int32 WaveJumpInterval = 10;
 
 	//Represents how far the player is in-game and how well they are doing
 	UPROPERTY(BlueprintReadOnly, Category = "Enemy Pool Flow | Active Stats")
@@ -791,4 +813,7 @@ private:
 	float TempCurrentStressLevel = 0.0f;
 	float BucketDrainTimer = 0.0f;
 	FTimerHandle BucketDrainDelayHandle;
+
+	bool bWaveJumped = false;
+	int32 WaveJumpedTotalEnemies;
 };

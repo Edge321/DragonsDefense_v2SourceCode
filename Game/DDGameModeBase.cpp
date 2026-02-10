@@ -80,7 +80,14 @@ void ADDGameModeBase::BeginPlay()
 			//Difficulties won is loaded in the InitGame() function
 		}
 		else {
-			UE_LOG(LogTemp, Warning, TEXT("No save found, skipping..."))
+			TMap<EDifficulty, int32> DifficultyHighScoreMap = {
+				{EDifficulty::Easy, 1},
+				{EDifficulty::Normal, 1},
+				{EDifficulty::Hard, 1}
+			};
+
+			MainMenuWidget->LoadUnlockedWaves(DifficultyHighScoreMap);
+			UE_LOG(LogTemp, Warning, TEXT("No save found..."))
 		}
 	}
 }
@@ -467,10 +474,13 @@ void ADDGameModeBase::SaveGame() const
 	SaveData->DifficultiesWon = DifficultiesWonInt;
 
 	for (TPair<EDifficulty, int32> DifficultyPair : DifficultyWaveHighScores) {
-		SaveData->DifficultyWaveHighScore[DifficultyPair.Key] = FMathf::Max(LoadData->DifficultyWaveHighScore[DifficultyPair.Key], DifficultyWaveHighScores[DifficultyPair.Key]);
+		if (LoadData) {
+			SaveData->DifficultyWaveHighScore[DifficultyPair.Key] = FMathf::Max(LoadData->DifficultyWaveHighScore[DifficultyPair.Key], DifficultyWaveHighScores[DifficultyPair.Key]);
+		}
+		else {
+			SaveData->DifficultyWaveHighScore[DifficultyPair.Key] = DifficultyWaveHighScores[DifficultyPair.Key];
+		}
 	}
-
-	SaveData->DifficultyWaveHighScore[EDifficulty::Normal] = 99;
 
 	if (LoadData) {
 		SaveData->WaveHighestScore = FMathf::Max(LoadData->WaveHighestScore, WaveHighScore);

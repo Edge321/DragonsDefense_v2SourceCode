@@ -311,6 +311,7 @@ void ADDNegativeSoulShopManager::GameOverEventFunction()
 void ADDNegativeSoulShopManager::GameWaveJumpChoiceEventFunction() 
 {
 	const int32 CurrentWave = GameModeRef->GetEnemySpawner().GetCurrentWave();
+	//+ 1 is to account for setting up the special downgrade wave for the next time it comes around, cus it will be skipped entirely otherwise
 	const int32 Multiplication = ((CurrentWave - SpecialDowngradeWaveOffset) / SpecialDowngradeWave) + 1;
 	ActualSpecialDowngradeWave = (SpecialDowngradeWave * Multiplication) + SpecialDowngradeWaveOffset;
 }

@@ -612,6 +612,8 @@ TArray<TSubclassOf<AEnemy>> ADDTheKing::DetermineEnemies(TArray<TSubclassOf<AEne
 
 void ADDTheKing::CalculateEnemyAmount()
 {
+	if (bWaveJumped) return; //No need for calculation, we already did it
+
 	const int32 PreviousEnemyAmount = EnemySpawner->GetMaxEnemySpawn();
 	const int32 CurrentWave = EnemySpawner->GetCurrentWave();
 
@@ -631,6 +633,7 @@ void ADDTheKing::CalculateEnemyAmount()
 
 	int32 CalculatedEnemyAmount = PreviousEnemyAmount;
 	//Basically a quadratic formula, but reduces the explosive growth
+	//Takes previous enemy amount into account to include enemy amount reduction pity reward
 	CalculatedEnemyAmount += (FMath::Pow((CurrentWave * EnemyAmountWaveFactor) / EnemyAmountDivider, 2)
 							* DifficultyWaveEnemyAmountModifier) +
 							BaseEnemyAmount;
@@ -1286,7 +1289,42 @@ void ADDTheKing::GameWaveJumpChoiceEventFunction()
 	//+ 1 gives a small buffer so the player isn't hit with a special or wild wave right off the bat
 	const int32 SpecialMultiplier = (CurrentWave + 1) / LowerSpecialWaveRandomizer;
 	const int32 WildMultiplier = (CurrentWave + 1) / LowWildCardAddition;
+	float DifficultyWaveEnemyAmountModifier = 1.0f;
+	float DifficultyBasicEnemyRatio = 1.0f;
+	int32 CalculatedEnemyAmount = 0;
+	int32 TotalSoulAmount = 0;
+	int32 ExtraSoulsMultiplier = 1; //Any extra souls that the enemy holds
 
 	SpecialWaveNumber = (SpecialMultiplier * LowerSpecialWaveRandomizer) + FMath::RandRange(LowerSpecialWaveRandomizer, HigherSpecialWaveRandomizer);
 	CurrentWildCardWave = (WildMultiplier * LowWildCardAddition) + FMath::RandRange(LowWildCardAddition, HighWildCardAddition);
+
+	switch (GameMode->GetDifficulty()) {
+		case EDifficulty::Easy:
+			DifficultyWaveEnemyAmountModifier = EasyWaveEnemyAmountModifier;
+			ExtraSoulsMultiplier = 2; //Enemies grant one more soul in easy difficulty
+			DifficultyBasicEnemyRatio = EasyBasicEnemyRatio;
+			break;
+		case EDifficulty::Normal:
+			DifficultyBasicEnemyRatio = NormalBasicEnemyRatio;
+			break;
+		case EDifficulty::Hard:
+			DifficultyWaveEnemyAmountModifier = HardWaveEnemyAmountModifier;
+			DifficultyBasicEnemyRatio = HardBasicEnemyRatio;
+			break;
+	}
+
+	for (int32 i = 1; i <= CurrentWave; i++) {
+		CalculatedEnemyAmount += (FMath::Pow((i * EnemyAmountWaveFactor) / EnemyAmountDivider, 2)
+								* DifficultyWaveEnemyAmountModifier) +
+								BaseEnemyAmount;
+	}
+	EnemySpawner->SetMaxEnemySpawn(CalculatedEnemyAmount);
+
+	//Inverse of basic enemy ratio
+	const float SpecialEnemyRatio = 1.0f - DifficultyBasicEnemyRatio;
+	TotalSoulAmount = ((CalculatedEnemyAmount * ExtraSoulsMultiplier) * DifficultyBasicEnemyRatio) +
+						((CalculatedEnemyAmount * ExtraSoulsMultiplier * SpecialEnemySoulBonus) * SpecialEnemyRatio) +
+						(EnemyEncyclopediaRef[EDDEnemyIDs::MINI_BOSS].GetDefaultObject()->GetSoulValue() * (CurrentWave / WaveJumpInterval));
+
+	GameMode->UpdateSouls(TotalSoulAmount);
 }

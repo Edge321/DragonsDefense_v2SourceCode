@@ -173,6 +173,11 @@ const float AEnemy::GetProjectileSpeed() const
 	return ProjectileSpeed;
 }
 
+const int32 AEnemy::GetSoulValue() const 
+{
+	return SoulValue;
+}
+
 void AEnemy::SetMovementSpeed(const float NewMovementSpeed)
 {
 	MovementSpeed = NewMovementSpeed;

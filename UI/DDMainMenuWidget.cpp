@@ -29,15 +29,15 @@ void UDDMainMenuWidget::SetGameWave() const
 {
 	ADDGameModeBase* GameMode = Cast<ADDGameModeBase>(GetWorld()->GetAuthGameMode());
 	if (GameMode) {
-		GameMode->SetDifficulty(CurrentDifficultyChosen);
+		GameMode->GetEnemySpawner().SetCurrentWave(CurrentWaveChosen);
 	}
 }
 
 void UDDMainMenuWidget::SetGameDifficulty() const
 {
-	ADDGameModeBase* GameMode = Cast<ADDGameModeBase>(GetWorld()->GetAuthGameMode()); //TODO - investigate how chosen waves impact the rest of the game systems
+	ADDGameModeBase* GameMode = Cast<ADDGameModeBase>(GetWorld()->GetAuthGameMode());
 	if (GameMode) {
-		GameMode->GetEnemySpawner().SetCurrentWave(CurrentWaveChosen);
+		GameMode->SetDifficulty(CurrentDifficultyChosen);
 	}
 }
 
