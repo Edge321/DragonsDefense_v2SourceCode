@@ -1,13 +1,16 @@
-// Copyright (c) 2024, Edge Cope Corp. All rights reserved
+// Copyright (c) 2026, Edge Cope Corp. All rights reserved
 
 
 #include "DDBigShopConfirmButton.h"
+#include "Components/TextBlock.h"
 //My classes
 #include "DragonsDefense_v2/UI/DDShopButton.h"
 #include "DragonsDefense_v2/Game/DDGameModeBase.h"
 
 void UDDBigShopConfirmButton::InitializeButton() 
 {
+	OriginalButtonColor = GetBackgroundColor();
+
 	ADDGameModeBase* GameMode = Cast<ADDGameModeBase>(GetWorld()->GetAuthGameMode());
 	if (GameMode) {
 		GameMode->OnWaveStart.AddDynamic(this, &UDDBigShopConfirmButton::WaveStartEventFunction);
@@ -30,6 +33,17 @@ UDDShopButton* UDDBigShopConfirmButton::GetCurrentBigShopButtonPtr()
 	}
 }
 
+void UDDBigShopConfirmButton::UpdateBigConfirmButton() 
+{
+	if (BigShopButtonPtr.IsValid()) {
+		SetBackgroundColor(BigShopButtonPtr->GetBuyableStatus() ? OriginalButtonColor : UnbuyableColor);
+		SetIsEnabled(BigShopButtonPtr->GetBuyableStatus());
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("BigShopButtonPtr is null, skipping updating big confirm button"))
+	}
+}
+
 void UDDBigShopConfirmButton::OnBigShopButtonClicked(UDDShopButton* Button)
 {
 	if (BigShopButtonPtr.Get() == Button) return; //do nothing
@@ -41,6 +55,7 @@ void UDDBigShopConfirmButton::OnBigShopButtonClicked(UDDShopButton* Button)
 	if (Button) {
 		BigShopButtonPtr = MakeWeakObjectPtr(Button);
 		ButtonText->SetText(FText::FromString(BigShopButtonPtr->GetButtonBuyText()));
+		UpdateBigConfirmButton();
 	}
 }
 

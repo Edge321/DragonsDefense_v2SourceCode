@@ -1,4 +1,4 @@
-// Copyright (c) 2024, Edge Cope Corp. All rights reserved
+// Copyright (c) 2026, Edge Cope Corp. All rights reserved
 
 #pragma once
 
@@ -9,6 +9,7 @@
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnBuy);
 
 class UDDShopButton;
+class UTextBlock;
 
 /**
  * 
@@ -22,6 +23,8 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	UTextBlock* ButtonText;
+	UPROPERTY(EditDefaultsOnly, Category = "Buy Color")
+	FLinearColor UnbuyableColor = FLinearColor::Red;
 
 public:
 
@@ -29,6 +32,9 @@ public:
 	void InitializeButton();
 	UFUNCTION(BlueprintCallable)
 	UDDShopButton* GetCurrentBigShopButtonPtr();
+	//Updates the confirm button by checking if the item its viewing is still in a buyable state
+	UFUNCTION(BlueprintCallable)
+	void UpdateBigConfirmButton();
 
 	UPROPERTY(BlueprintAssignable)
 	FOnBuy OnBuy;
@@ -49,4 +55,6 @@ protected:
 private:
 
 	TWeakObjectPtr<UDDShopButton> BigShopButtonPtr;
+
+	FLinearColor OriginalButtonColor;
 };
