@@ -21,10 +21,10 @@ void UDDPlaceableInfoWidget::InitializeInfoWidget()
 	}
 }
 
-void UDDPlaceableInfoWidget::SetCurrentPlaceable(ADDPlaceable* CurrentPlaceable)
+bool UDDPlaceableInfoWidget::SetCurrentPlaceable(ADDPlaceable* CurrentPlaceable)
 {
 	//If clicked on placeable is the same as currently stored one
-	if (CurrentPlaceable == MostRecentPlaceable) return;
+	if (CurrentPlaceable == MostRecentPlaceable) return true;
 
 	MostRecentPlaceable = CurrentPlaceable;
 	
@@ -33,7 +33,7 @@ void UDDPlaceableInfoWidget::SetCurrentPlaceable(ADDPlaceable* CurrentPlaceable)
 		Sentient = nullptr;
 		Trap = nullptr;
 		MostRecentPlaceable = nullptr;
-		return;
+		return true;
 	}
 
 	if (CurrentPlaceable->IsA<ADDSentientPlaceable>()) {
@@ -44,6 +44,8 @@ void UDDPlaceableInfoWidget::SetCurrentPlaceable(ADDPlaceable* CurrentPlaceable)
 		bIsSentient = false;
 		Trap = Cast<ADDTrapPlaceable>(CurrentPlaceable);
 	}
+
+	return false;
 }
 
 void UDDPlaceableInfoWidget::SetCurrentHoveredPlaceable(ADDPlaceable* CurrentPlaceable)

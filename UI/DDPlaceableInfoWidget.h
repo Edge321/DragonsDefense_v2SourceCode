@@ -27,8 +27,9 @@ protected:
 	
 	UFUNCTION(BlueprintCallable, Category = "Placeable")
 	void InitializeInfoWidget();
+	//returns true if clicks on same placeable, false otherwise
 	UFUNCTION(BlueprintCallable, Category = "Placeable")
-	void SetCurrentPlaceable(ADDPlaceable* CurrentPlaceable);
+	bool SetCurrentPlaceable(ADDPlaceable* CurrentPlaceable);
 	UFUNCTION(BlueprintCallable, Category = "Placeable")
 	void SetCurrentHoveredPlaceable(ADDPlaceable* CurrentPlaceable);
 	UFUNCTION(BlueprintCallable, Category = "PlaceableAI")

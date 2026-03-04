@@ -1,0 +1,78 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2" pages="2">
+  <diagram name="New Villager Wireframe" id="Y69T1z9wd0v0lLML9rIZ">
+    <mxGraphModel dx="2066" dy="1201" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wZ3lXBXDFg_LBVnE7qTk-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F1B05;fontColor=#ffffff;strokeColor=#2D7600;" value="" vertex="1">
+          <mxGeometry height="1080" width="1920" x="505" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="wZ3lXBXDFg_LBVnE7qTk-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#354049;fontColor=#ffffff;strokeColor=#314354;" value="&lt;font style=&quot;font-size: 22px;&quot;&gt;Castle Wall&lt;/font&gt;" vertex="1">
+          <mxGeometry height="72" width="1925" x="500" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="wZ3lXBXDFg_LBVnE7qTk-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" value="&lt;font style=&quot;font-size: 22px;&quot;&gt;Castle&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="1925" x="505" y="1650" as="geometry" />
+        </mxCell>
+        <mxCell id="wZ3lXBXDFg_LBVnE7qTk-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" value="&lt;span style=&quot;font-size: 22px;&quot;&gt;Dragon&lt;/span&gt;" vertex="1">
+          <mxGeometry height="110" width="110" x="1200" y="1590" as="geometry" />
+        </mxCell>
+        <mxCell id="wZ3lXBXDFg_LBVnE7qTk-35" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" value="New Enemy" vertex="1">
+          <mxGeometry height="80" width="80" x="1630" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="wZ3lXBXDFg_LBVnE7qTk-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="309" width="285" x="505" y="751" as="geometry" />
+        </mxCell>
+        <mxCell id="wZ3lXBXDFg_LBVnE7qTk-38" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;A new villager has been discovered!&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="280" x="507.5" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="wZ3lXBXDFg_LBVnE7qTk-39" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Actor" vertex="1">
+          <mxGeometry height="100" width="57" x="619" y="830.5" as="geometry" />
+        </mxCell>
+        <mxCell id="wZ3lXBXDFg_LBVnE7qTk-40" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;Villager Name&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="230" x="532.5" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="wZ3lXBXDFg_LBVnE7qTk-41" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Press TAB for more information&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="280" x="507.5" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="wZ3lXBXDFg_LBVnE7qTk-42" parent="1" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.x;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" value="" vertex="1">
+          <mxGeometry height="19" width="20" x="770" y="751" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="cYKsGvjYXcKpP0xsa7Z2" name="Special Enemy Alert Wireframe">
+    <mxGraphModel dx="2066" dy="1201" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="m_pSiNc3G39Dlg0zsHQQ-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0F1B05;fontColor=#ffffff;strokeColor=#2D7600;" value="" vertex="1">
+          <mxGeometry height="1080" width="1920" x="545" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="m_pSiNc3G39Dlg0zsHQQ-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#354049;fontColor=#ffffff;strokeColor=#314354;" value="&lt;font style=&quot;font-size: 22px;&quot;&gt;Castle Wall&lt;/font&gt;" vertex="1">
+          <mxGeometry height="72" width="1925" x="540" y="658" as="geometry" />
+        </mxCell>
+        <mxCell id="m_pSiNc3G39Dlg0zsHQQ-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" value="&lt;font style=&quot;font-size: 22px;&quot;&gt;Castle&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="1925" x="545" y="1520" as="geometry" />
+        </mxCell>
+        <mxCell id="m_pSiNc3G39Dlg0zsHQQ-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" value="&lt;span style=&quot;font-size: 22px;&quot;&gt;Dragon&lt;/span&gt;" vertex="1">
+          <mxGeometry height="110" width="110" x="1240" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="m_pSiNc3G39Dlg0zsHQQ-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" value="New Enemy" vertex="1">
+          <mxGeometry height="80" width="80" x="1670" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="m_pSiNc3G39Dlg0zsHQQ-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="" vertex="1">
+          <mxGeometry height="400" width="340" x="1335" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="SfSvLEQkYPwYbXdVcIvt-1" parent="1" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.x;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" value="" vertex="1">
+          <mxGeometry height="50" width="55" x="1620" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="SfSvLEQkYPwYbXdVcIvt-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;&lt;font style=&quot;font-size: 28px;&quot;&gt;The Disrupter has arrived!&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 28px;&quot;&gt;The battlefield will be altered with an area no longer placeable.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 28px;&quot;&gt;Plan accordingly.&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="230" width="284.25" x="1367.8700000000001" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="SfSvLEQkYPwYbXdVcIvt-3" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Actor" vertex="1">
+          <mxGeometry height="120" width="70.01" x="1474.99" y="980" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
