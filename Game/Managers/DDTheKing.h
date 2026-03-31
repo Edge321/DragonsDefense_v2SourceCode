@@ -231,6 +231,15 @@ protected:
 	//Higher number is greatly affects how fast it takes
 	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Enemy Pool Size")
 	int32 HardWaveNumberModifier = 10;
+	//What wave threshold until special enemies are no longer required to be accompanied by basic enemies in the enemy pool for easy difficulty
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Enemy Pool Size")
+	int32 AccompanySpecialEnemyEasyWaveNumberThreshold = 19;
+	//What wave threshold until special enemies are no longer required to be accompanied by basic enemies in the enemy pool for normal difficulty
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Enemy Pool Size")
+	int32 AccompanySpecialEnemyNormalWaveNumberThreshold = 16;
+	//What wave threshold until special enemies are no longer required to be accompanied by basic enemies in the enemy pool for hard difficulty
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Enemy Pool Size")
+	int32 AccompanySpecialEnemyHardWaveNumberThreshold = 13;
 	//What wave threshold until The King puts in more than SpecialEnemyLimitNumber special enemy type in the enemy type pool for easy difficulty
 	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Enemy Type Pool")
 	int32 SpecialEnemyLimitEasyWaveNumberThreshold = 12;
@@ -240,7 +249,7 @@ protected:
 	//What wave threshold until The King puts in more than SpecialEnemyLimitNumber special enemy type in the enemy type pool for hard difficulty
 	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Enemy Type Pool")
 	int32 SpecialEnemyLimitHardWaveNumberThreshold = 8;
-	//What is the limit of special enemies until the special enemy limit wave threshold has passed
+	//What is the limit of special enemies chosen in the pool until the special enemy limit wave threshold has passed
 	UPROPERTY(EditDefaultsOnly, Category = "Enemy Pool Flow | Enemy Type Pool")
 	int32 SpecialEnemyLimit = 1;
 	//How much of the base weight do basic enemies have in being picked for the enemy pool

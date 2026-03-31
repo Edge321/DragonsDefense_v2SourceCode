@@ -36,6 +36,7 @@ AEnemy::AEnemy()
 	AttackSight->SetupAttachment(Mesh);
 	HealthBarWidget->SetupAttachment(Mesh);
 	HealthBarWidget->SetWorldRotation(FQuat(0, 0, 180, 0));
+	HealthBarWidget->SetRelativeLocation(FVector(0, 0, 150.0f)); //Make the health bar be above the enemy
 	
 	//Forces only the collider to have collision. 
 	//Whether this is a good idea, I dont know

@@ -428,24 +428,29 @@ TPair<int32, int32> ADDTheKing::DetermineEnemyTypesInPool() const
 	int32 BasicEnemyCounter = 0;
 	int32 SpecialEnemyCounter = 0;
 	int32 SpecialEnemyLimitWaveNumber = 1;
+	int32 AccompanySpecialEnemyWaveNumber = 1;
 
 	EDifficulty CurrentDifficulty = GameMode->GetDifficulty();
+	int32 CurrentWave = EnemySpawner->GetCurrentWave();
 
 	switch (CurrentDifficulty) {
 		case EDifficulty::Easy:
 			DifficultyBasicEnemyWeightMod = EasyBasicEnemyWeightModifier;
 			ActualInitialMaxWaveNumber += EasyWaveNumberModifier;
 			SpecialEnemyLimitWaveNumber = SpecialEnemyLimitEasyWaveNumberThreshold;
+			AccompanySpecialEnemyWaveNumber = AccompanySpecialEnemyEasyWaveNumberThreshold;
 			break;
 		case EDifficulty::Normal:
 		default:
 			DifficultyBasicEnemyWeightMod = 1.0f;
 			SpecialEnemyLimitWaveNumber = SpecialEnemyLimitNormalWaveNumberThreshold;
+			AccompanySpecialEnemyWaveNumber = AccompanySpecialEnemyNormalWaveNumberThreshold;
 			break;
 		case EDifficulty::Hard:
 			DifficultyBasicEnemyWeightMod = HardBasicEnemyWeightModifier;
 			ActualInitialMaxWaveNumber -= HardWaveNumberModifier;
 			SpecialEnemyLimitWaveNumber = SpecialEnemyLimitHardWaveNumberThreshold;
+			AccompanySpecialEnemyWaveNumber = AccompanySpecialEnemyHardWaveNumberThreshold;
 			break;
 	}
 	UE_LOG(LogTemp, Log, TEXT("ActualInitialMaxWaveNumber : %d"), ActualInitialMaxWaveNumber);
@@ -488,6 +493,12 @@ TPair<int32, int32> ADDTheKing::DetermineEnemyTypesInPool() const
 			SpecialEnemyCounter++;
 		}
 	}
+
+	//Always have a basic enemy accompany a special enemy until we hit the threshold
+	if (CurrentWave < AccompanySpecialEnemyWaveNumber && BasicEnemyCounter <= 0 && SpecialEnemyCounter > 0) {
+		BasicEnemyCounter++;
+	}
+
 	//Check for if we haven't crossed the special enemy limit threshold yet //TODO - test this functionality
 	if (WaveNumber < SpecialEnemyLimitWaveNumber && SpecialEnemyCounter > SpecialEnemyLimit) {
 		const int32 EnemyLeftover = SpecialEnemyCounter - SpecialEnemyLimit;

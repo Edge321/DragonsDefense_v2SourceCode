@@ -61,8 +61,9 @@ void ADDEnemySpawner::SpawnEnemyOutsidePool(TPair<EDDEnemyIDs, TSubclassOf<AEnem
 	//Don't want random enemies coming out of nowhere attacking the castle after all
 	//Separate the enemies by their ID * 200, makes it easy to take pictures of them
 	FVector FarAwayLocation = GetActorLocation() + 10000.0f + ((int32) EnemyPair.Key * 200.0f);
+	FRotator RotationOffset = FRotator(-90.0f, 0.0f, 0.0f);
 
-	GetWorld()->SpawnActor<AEnemy>(EnemyPair.Value, FarAwayLocation, GetActorRotation());
+	GetWorld()->SpawnActor<AEnemy>(EnemyPair.Value, FarAwayLocation, GetActorRotation() + RotationOffset);
 }
 
 void ADDEnemySpawner::SpawnEnemy()

@@ -58,7 +58,7 @@ void ADDProjectileManager::CleanPool()
 		if (Proj) {
 			Proj->Destroy();
 		}
-	}
+	} //BUG - crash here, problem with cleaning up projectile. I found one that is NULL. Occured at high wave number, dying to enemies
 	ProjectilePool.Empty();
 }
 

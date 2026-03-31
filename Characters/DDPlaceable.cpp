@@ -21,6 +21,8 @@ ADDPlaceable::ADDPlaceable()
 	HealthBarWidget = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
 	FadeTimeline = CreateDefaultSubobject<UTimelineComponent>(TEXT("FadeTimeline"));
 
+	HealthBarWidget->SetRelativeLocation(FVector(0, 0, 150.0f)); //Make the health bar be above the enemy
+
 	HealthBarWidget->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	Collider->SetCollisionObjectType(ECC_PlaceableChannel);
 	DDColliderLibrary::SetCollisionChannelToIgnore(Collider, ECC_PlaceableChannel);
