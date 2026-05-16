@@ -55,7 +55,7 @@ protected:
 
 public:
 
-	void ConvertToEvil() override;
+	virtual void ConvertToEvil() override;
 	
 private:
 
